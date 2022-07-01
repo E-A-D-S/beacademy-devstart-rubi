@@ -2,7 +2,7 @@
     margin: 0px auto;
     max-width: 1174px;
 }
-.container, .header{
+.container, .header, .max-container{
     margin: 0px auto;
     width: 100%;
 }
@@ -15,10 +15,6 @@
     width: 100%;
     height: 425px;
 }
-.header .max-container{
-    margin: 0px auto;
-    width: 100%;
-}   
 .rating-container{
     transform: rotate(180deg);
 }
