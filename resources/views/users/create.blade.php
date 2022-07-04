@@ -2,7 +2,7 @@
 @section('title', 'Cadastrar usuário')
 @section('content')
 
-  <div class="container mb-3">
+  <main class="container mb-3">
     <h1 class="mt-3 mb-3">Cadastrar Usuário</h1>
 
     <form method="" action="">
@@ -58,5 +58,5 @@
   
       <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
-  </div>
+  </main>
 @endsection
