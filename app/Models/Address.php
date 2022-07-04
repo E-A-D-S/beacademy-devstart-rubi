@@ -10,9 +10,12 @@ class Address extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'postal_code',
         'address',
         'city',
-        'country'
+        'country',
+        'created_at',
+        'updated_at'
     ];
 }
