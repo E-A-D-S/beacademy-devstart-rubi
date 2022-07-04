@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -13,4 +14,6 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', [IndexController::class, "index"])->name("index.index");
 Route::get('/user/login', [UserController::class, 'index'])->name('users.index');
