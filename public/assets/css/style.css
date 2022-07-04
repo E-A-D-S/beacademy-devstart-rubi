@@ -15,7 +15,7 @@
     width: 100%;
     height: 425px;
 }
-.rating-container{
+/* .rating-container{
     transform: rotate(180deg);
 }
 .rating-container input {
@@ -39,4 +39,4 @@
     }
 .rating-container input:hover ~ label{
     transform: scale(1.2) rotate(-180deg);
-}
+} */
