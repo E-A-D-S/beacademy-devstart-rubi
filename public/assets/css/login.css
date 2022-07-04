@@ -1,0 +1,15 @@
+body {
+  background: url('../img/vinhos.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.logo {
+  widht: 120px;
+}
+
+.text-black {
+  color: #000;
+}
