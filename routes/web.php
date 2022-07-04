@@ -7,4 +7,4 @@ use App\Http\Controllers\{
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, "index"])->name("index.index");
-Route::get('cadastro', [UserController::class, "index"])->name("users.create");
+Route::get('cadastro', [UserController::class, "create"])->name("users.create");
