@@ -8,7 +8,7 @@
             <div class="row justify-content-between">
                 <div class="card mb-3" style="width: 18rem;">
                 <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
+                    <img class="card-img-top md" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
                 </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
@@ -178,6 +178,10 @@
                         </small>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="card-deck">
+            <div class="row justify-content-between">
                 <div class="card mb-3" style="width: 18rem;">
                 <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
                     <img class="card-img-top" src="assets/img/products/wine/vinho-viapiana-rose.jpg" alt="Card image cap">
