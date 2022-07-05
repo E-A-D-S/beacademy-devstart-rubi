@@ -21,6 +21,7 @@
         <div class="collapse navbar-collapse max-container" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item p-2"><a href="{{ route('index.index') }}" class="btn btn-outline-dark">inicio</a></li>
+                <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark">Conta</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">Conta</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 3</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 4</a></li>
