@@ -32,11 +32,11 @@
     margin-right: 5px;
 }
 .rating-container input:checked ~ label,
-    input:hover ~ label{
+.rating-container input:hover ~ label{
         color: #ff7a00;
         transform: scale(1.2) rotate(-180deg);
         transition: all .4s;
-    }
+}
 .rating-container input:hover ~ label{
     transform: scale(1.2) rotate(-180deg);
 }
