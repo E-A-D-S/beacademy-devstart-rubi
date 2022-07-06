@@ -13,27 +13,35 @@
         <label for="name" class="form-label">Nome</label>
         <input type="text" class="form-control" id="name" name="name">
       </div>
-  
+
       <div class="form-group mb-3">
         <label for="name" class="form-label">Email</label>
         <input type="email" class="form-control" id="name" name="name">
       </div>
-  
+
       <div class="form-group mb-3">
         <label for="name" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="name" name="name">
-      </div>
-  
+        <div class="input-group">
+                  <input class= "form-control" name= "password" type="password" placeholder="Digite sua senha">
+                  <div class="input-group-append">
+                     <span class="input-group-text">
+                        <a href="#" class="togglePassword">
+                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        </a>
+                     </span>
+                  </div>
+                </div>
+            </div>
       <div class="form-group mb-3">
         <label for="name" class="form-label">Telefone</label>
         <input type="phone" class="form-control" id="name" name="name">
       </div>
-  
+
       <div class="form-group mb-3">
         <label for="name" class="form-label">Endereço</label>
         <input type="text" class="form-control" id="name" name="name">
       </div>
-  
+
       <div class="form-group mb-3">
         <label for="name" class="form-label">Data Nascimento</label>
         <input type="date" class="form-control" id="name" name="name">
@@ -43,7 +51,7 @@
         <label for="name" class="form-label">CPF</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="000.000.000-00">
       </div>
-  
+
       <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
   </main>

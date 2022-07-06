@@ -15,16 +15,23 @@
             </div>
             <div class="form-group mt-3">
                 <label>Senha</label>
-                    <a href="#" class="float-right">
-                        <i class="fa fa-eye"></i>
-                    </a>
-                <input type="password" class="form-control" placeholder="Digite sua senha">
+                <div class="input-group">
+                  <input class= "form-control" name= "password" type="password" placeholder="Digite sua senha">
+                  <div class="input-group-append">
+                     <span class="input-group-text">
+                        <a href="#" class="togglePassword">
+                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        </a>
+                     </span>
+                  </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block mt-3" >Entrar</button>
             <div class="row mt-3">
                 <div class="col">
                     <input type="checkbox" name="remember" id="remember"/>
                     <label for="remember">Lembrar-me</label>
+
                 </div>
                 <div class="col">
                         <a href="#">Esqueci minha senha</a>
