@@ -14,24 +14,21 @@
         <input type="text" class="form-control" id="name" name="name">
       </div>
 
-      <div class="form-group mb-3">
-        <label for="name" class="form-label">Email</label>
-        <input type="email" class="form-control" id="name" name="name">
+    <div class="form-group mb-3">
+    <label for="name" class="form-label">Email</label>
+     <input type="email" class="form-control" id="name" name="name">
       </div>
-
       <div class="form-group mb-3">
         <label for="name" class="form-label">Senha</label>
-        <div class="input-group">
-                  <input class= "form-control" name= "password" type="password" placeholder="Digite sua senha">
-                  <div class="input-group-append">
-                     <span class="input-group-text">
-                        <a href="#" class="togglePassword">
-                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
-                        </a>
-                     </span>
-                  </div>
-                </div>
-            </div>
+        <input class= "form-control" name= "password" type="password">
+     <div class="input-group-append">
+            <span class="input-group-text">
+            <a href="#" class="togglePassword">
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+            </a>
+            </span>
+     </div>
+     </div>
       <div class="form-group mb-3">
         <label for="name" class="form-label">Telefone</label>
         <input type="phone" class="form-control" id="name" name="name">
