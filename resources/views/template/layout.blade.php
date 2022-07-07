@@ -26,6 +26,7 @@
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 5</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 6</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 7</a></li>
+                <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark">Contato</a></li>
             </ul>
         </nav>
     </header>
