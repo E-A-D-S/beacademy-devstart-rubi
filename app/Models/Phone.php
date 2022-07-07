@@ -12,6 +12,7 @@ class Phone extends Model
     protected $fillable = [
         'id',
         'phone',
+        'user_id',
         'created_at',
         'updated_at'
     ];

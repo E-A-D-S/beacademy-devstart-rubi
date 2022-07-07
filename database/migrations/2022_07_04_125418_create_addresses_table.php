@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('country');
+            $table->string('state');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
