@@ -20,7 +20,7 @@ class PhoneFactory extends Factory
     {
         return [
             'user_id' => User::all()->random()->id,
-            'phone'=>$this->faker->phoneNumber(),
+            'phone'   => $this->faker->phoneNumber(),
             'created_at' => now(),
             'updated_at' => now()
         ];
