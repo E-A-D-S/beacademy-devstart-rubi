@@ -6,7 +6,10 @@ use App\Http\Controllers\{
   UserController
 };
 
-Route::get('/', [IndexController::class, "index"])->name("index.index");
+Route::controller(IndexController::class)->group(function(){
+    Route::get('/', "index")->name("index.index");
+    Route::get('/contact', "contact")->name("index.contact");
+});
 
 Route::controller(UserController::class)->group(function(){
     Route::get('/user/login',"login")->name("users.login");
