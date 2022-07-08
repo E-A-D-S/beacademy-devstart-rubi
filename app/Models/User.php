@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'cpf',
         'userType',
+        'birthday',
         'created_at',
         'updated_at'
     ];
