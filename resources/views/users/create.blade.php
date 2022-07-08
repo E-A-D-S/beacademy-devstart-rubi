@@ -12,7 +12,7 @@
                 <div class="modal-body text-dark">
                     <h1 class="mt-3 mb-3">Cadastrar Usuário</h1>
 
-                    <form method="post" action="/user/save" class="pl-4 pr-4">
+                    <form method="post" action="{{ route('users.store') }}" class="pl-4 pr-4">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="name" class="form-label">Nome</label>
@@ -45,12 +45,20 @@
                             <input type="phone" class="form-control" id="phone" name="phone">
                         </div>
 
-
                         <div class="form-group mb-3">
                             <label for="address" class="form-label">Endereço</label>
                             <input type="text" class="form-control" id="address" name="address">
                         </div>
 
+                        <div class="form-group mb-3">
+                            <label for="city" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="city" name="city">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="state" class="form-label">Estado</label>
+                            <input type="text" class="form-control" id="state" name="state">
+                        </div>
 
                         <div class="form-group mb-3">
                             <label for="birthday" class="form-label">Data Nascimento</label>

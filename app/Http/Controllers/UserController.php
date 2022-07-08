@@ -2,11 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\{
+    User,
+    address,
+    Phone
+};
 
 class UserController extends Controller
 {
+    protected $user;
+    protected $address;
+    protected $phone;
+
+    public function __construct(User $user, Address $address, Phone $phone)
+    {
+        $this->model = $user;
+        $this->model = $address;
+        $this->model = $phone;
+    }
+
     public function login()
     {
         return view("users.login");
@@ -19,7 +36,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        User::create($request->all());
-        return redirect('/');
+        $data   = $request->all();
+        $data['password'] = password_hash($request->password, PASSWORD_ARGON2I);
+
+
+        $this->model->create($data);
+
+        return redirect()->route('users.login');
     }
 }
