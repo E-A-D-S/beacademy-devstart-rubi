@@ -6,7 +6,13 @@ use App\Http\Controllers\{
   UserController
 };
 
-Route::get('/', [IndexController::class, "index"])->name("index.index");
-Route::get('/contact', [IndexController::class, "contact"])->name("index.contact");
-Route::get('/user/login', [UserController::class, "login"])->name("users.login");
-Route::get('/user/register', [UserController::class, "create"])->name("users.create");
+Route::controller(IndexController::class)->group(function(){
+    Route::get('/', "index")->name("index.index");
+    Route::get('/contact', "contact")->name("index.contact");
+});
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('/user/login',"login")->name("users.login");
+    Route::get('/user/register',"create")->name("users.create");
+    Route::post('/user/save', "store")->name("users.store");
+});
