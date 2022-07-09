@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
     User,
@@ -55,7 +53,9 @@ class UserController extends Controller
         $address->state     = $request->state;
         $address->user_id   = $user->id;
         $address->save();
+        
+        $message = "Cadastro realizado com sucesso!!!";
 
-        return redirect()->route('users.login');
+        return view('users.login', compact('message'));
     }
 }
