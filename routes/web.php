@@ -11,7 +11,7 @@ Route::get('/', [IndexController::class, "index"])->name("index.index");
 Route::get('cadastro', [UserController::class, "index"])->name("users.create");
 
 Route::get('/produtos', [ProductController::class, 'index'])->name('product.index');
-Route::get('/produtos/novo', [ProductController::class, 'create'])->name('product.create');
+Route::post('/produtos/novo', [ProductController::class, 'create'])->name('product.create');
 Route::get('/produtos/{id}', [ProductController::class, 'update'])->name('product.update');
-Route::get('/produtos/{id}/editar', [ProductController::class, 'edit'])->name('product.edit');
-Route::delete('/produtos/{id}', [ProductController::class, 'delete'])->name('product.delete');
+Route::put('/produtos/{id}/editar', [ProductController::class, 'edit'])->name('product.edit');
+Route::delete('/produtos/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
