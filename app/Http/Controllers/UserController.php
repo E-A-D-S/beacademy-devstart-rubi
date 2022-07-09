@@ -2,11 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\{
+    User,
+    address,
+    Phone
+};
 
 class UserController extends Controller
 {
+    protected $user;
+    protected $address;
+    protected $phone;
+
+    public function __construct(User $user, Address $address, Phone $phone)
+    {
+        $this->model = $user;
+        $this->model = $address;
+        $this->model = $phone;
+    }
+
     public function login()
     {
         return view("users.login");
@@ -19,7 +34,28 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        User::create($request->all());
-        return redirect('/');
+        $user = new User;
+        $user->name     = $request->name;
+        $user->email    = $request->email;
+        $user->password = password_hash($request->password, PASSWORD_ARGON2I);
+        $user->cpf      = $request->cpf;
+        $user->birthday = $request->birthday;
+        $user->save();
+
+        $phone = new Phone;
+        $phone->phone   = $request->phone;
+        $phone->user_id = $user->id;
+        $phone->save();
+
+        $address = new Address;
+        $address->address   = $request->address;
+        $address->city      = $request->city;
+        $address->state     = $request->state;
+        $address->user_id   = $user->id;
+        $address->save();
+        
+        $message = "Cadastro realizado com sucesso!!!";
+
+        return view('users.login', compact('message'));
     }
 }

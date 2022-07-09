@@ -27,5 +27,5 @@ Route::controller(IndexController::class)->group(function(){
 Route::controller(UserController::class)->group(function(){
     Route::get('/user/login',"login")->name("users.login");
     Route::get('/user/register',"create")->name("users.create");
-    Route::post('/user/save', "store")->name("users.store");
+    Route::post('/user/registered', "store")->name("users.store");
 });
