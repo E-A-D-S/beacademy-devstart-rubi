@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
   IndexController,
   UserController,
-  ProductController
+  ProductController,
+  OrderController,
 };
 
 Route::get('/', [IndexController::class, "index"])->name("index.index");
@@ -28,4 +29,14 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/user/login',"login")->name("users.login");
     Route::get('/user/register',"create")->name("users.create");
     Route::post('/user/registered', "store")->name("users.store");
+});
+
+Route::controller(OrderController::class)->group(function(){
+    Route::get('/order/index', "index")->name("orders.index");
+    Route::get('/order/register', "create")->name("orders.create");
+    Route::post('/order/save', "store")->name("orders.store");
+    Route::get('/order/{id}', 'show')->name('orders.show');
+    Route::get('/order/{id}/edit', "edit")->name("orders.edit");
+    Route::put('/order/{id}', "update")->name("orders.update");
+    Route::delete('/order/{id}', "destroy")->name("orders.destroy");
 });
