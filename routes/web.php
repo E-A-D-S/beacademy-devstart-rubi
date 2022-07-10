@@ -8,10 +8,12 @@ use App\Http\Controllers\{
   OrderController,
 };
 
-Route::get('/', [IndexController::class, "index"])->name("index.index");
+Route::controller(IndexController::class)->group(function(){
+    Route::get('/', "index")->name("index.index");
+    Route::get('/contact', "contact")->name("index.contact");
+});
 
 Route::controller(ProductController::class)->group(function() {
-  Route::get('/produtos', 'index')->name('products.index');
   Route::get('/produtos/novo',  'create')->name('products.create');
   Route::post('/produto', 'store')->name('products.store');
   Route::get('/produtos/{id}', 'show')->name('products.show');
@@ -20,10 +22,6 @@ Route::controller(ProductController::class)->group(function() {
   Route::delete('/produtos/{id}', 'destroy')->name('products.destroy');
 });
 
-Route::controller(IndexController::class)->group(function(){
-    Route::get('/', "index")->name("index.index");
-    Route::get('/contact', "contact")->name("index.contact");
-});
 
 Route::controller(UserController::class)->group(function(){
     Route::get('/user/login',"login")->name("users.login");
