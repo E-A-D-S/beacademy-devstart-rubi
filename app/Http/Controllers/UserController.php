@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
     User,
@@ -24,12 +25,16 @@ class UserController extends Controller
 
     public function login()
     {
-        return view("users.login");
+        if(Auth::check()){
+            return redirect()->route('account.index');
+        }else{
+            return view("users.login");
+        }
     }
 
     public function create()
     {
-        return view("users.create");
+        return view("users.register");
     }
 
     public function store(Request $request)
@@ -56,6 +61,22 @@ class UserController extends Controller
         
         $message = "Cadastro realizado com sucesso!!!";
 
-        return view('users.login', compact('message'));
+        return view('users.register', compact('message'));
+    }
+
+    public function auth(Request $request)
+    {   
+        
+            $this->validate($request, [
+                'email' =>  'required',
+                'password' => 'required'
+            ]);
+    
+                if(auth::attempt(['email' => $request->email, 'password' => $request->password]))
+                {
+                    return redirect()->route('account.index');                
+                }
+    
+                return redirect()->back()->with('danger', 'Email ou senha invalido!');
     }
 }

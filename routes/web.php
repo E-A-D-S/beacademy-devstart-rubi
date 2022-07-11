@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
   IndexController,
   UserController,
+  AccountController,
   ProductController,
   OrderController,
 };
@@ -17,13 +18,19 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/user/entrar',"login")->name("users.login");
     Route::get('/user/registro',"create")->name("users.create");
     Route::post('/user/registrado', "store")->name("users.store");
+    Route::post('/user',"auth")->name("users.auth");
+});
+
+Route::controller(AccountController::class)->group(function (){
+  Route::get("/dashboard", "index")->name("account.index")->middleware('auth');
+  Route::get("/user/sair", "logout")->name("account.logout")->middleware('auth');
 });
 
 Route::controller(ProductController::class)->group(function() {
-  Route::get('/produto/novo',  'create')->name('products.create');
-  Route::post('/produto/adicionado', 'store')->name('products.store');
-  Route::get('/produto/{id}', 'show')->name('products.show');
-  Route::get('/produto/{id}/editar', 'edit')->name('products.edit');
+  Route::get('/produto/novo',  'create')->name('products.create')->middleware('auth', 'CheckIsAdmin');
+  Route::post('/produto/adicionado', 'store')->name('products.store')->middleware('auth', 'CheckIsAdmin');
+  Route::get('/produto/{id}', 'show')->name('products.show')->middleware('auth', 'CheckIsAdmin');
+  Route::get('/produto/{id}/editar', 'edit')->name('products.edit')->middleware('auth', 'CheckIsAdmin');
   Route::put('/produto/{id}', 'update')->name('products.update');
   Route::delete('/produto/{id}', 'destroy')->name('products.destroy');
 });
