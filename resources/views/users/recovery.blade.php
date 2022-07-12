@@ -4,17 +4,12 @@
 
 <main class="container w-50 mt-5">
 
-  @if(isset($message))
-  <div class="alert alert-primary" role="alert">
-    {{ $message }}
-  </div>
-  @endif
   @if($errors->any())
-  @foreach($errors->all() as $error)
-  <div class="alert alert-danger" role="alert">
-    {{ $error }}
-  </div>
-  @endforeach
+    @foreach($errors->all() as $error)
+    <div class="alert alert-danger" role="alert">
+        {{ $error }}
+    </div>
+    @endforeach
   @endif
 
   <div class="modal-dialog" role="document">
