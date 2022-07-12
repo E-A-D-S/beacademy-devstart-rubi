@@ -81,7 +81,7 @@
 
                 <div class="col">
 
-                        <a href="#">Esqueci minha senha</a>
+                        <a href="{{ route('users.recovery') }}">Esqueci minha senha</a>
 
                 </div>
 
