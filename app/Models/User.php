@@ -24,8 +24,10 @@ class User extends Authenticatable
         'password',
         'cpf',
         'userType',
+        'birthday',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'birthday',
     ];
 
     /**
@@ -46,4 +48,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function phones()
+    {
+        return $this->hasMany(Phone::class);
+    }
 }

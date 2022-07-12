@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
   IndexController,
-  UserController
+  UserController,
+  ProductController,
+  OrderController,
 };
 
 Route::controller(IndexController::class)->group(function(){
