@@ -37,6 +37,11 @@ class UserController extends Controller
         return view("users.register");
     }
 
+    public function recovery()
+    {
+        return view("users.recovery");
+    }
+
     public function store(Request $request)
     {
         $user = new User;
@@ -58,7 +63,7 @@ class UserController extends Controller
         $address->state     = $request->state;
         $address->user_id   = $user->id;
         $address->save();
-        
+
         $message = "Cadastro realizado com sucesso!!!";
 
         return view('users.register', compact('message'));

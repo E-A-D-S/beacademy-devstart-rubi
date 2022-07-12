@@ -45,7 +45,7 @@
                     <label for="remember">Lembrar-me</label>
                 </div>
                 <div class="col">
-                        <a href="#">Esqueci minha senha</a>
+                        <a href="{{ route('users.recovery') }}">Esqueci minha senha</a>
                 </div>
             </div>
             <div class="text-center mt-4 mb-1">
