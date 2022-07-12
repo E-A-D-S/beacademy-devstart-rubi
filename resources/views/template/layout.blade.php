@@ -27,6 +27,9 @@
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 6</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 7</a></li>
                 <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark">Contato</a></li>
+                @if(Auth::User())
+                <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark">Logout</a></li>
+                @endif
             </ul>
         </nav>
     </header>
