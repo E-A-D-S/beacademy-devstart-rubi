@@ -9,6 +9,7 @@ use App\Models\{
     Address,
     Phone
 };
+use \App\Http\Requests\ValidateFormsRequest;
 
 class UserController extends Controller
 {
@@ -42,7 +43,7 @@ class UserController extends Controller
         return view("users.recovery");
     }
 
-    public function store(Request $request)
+    public function store(ValidateFormsRequest $request)
     {
         $user = new User;
         $user->name     = $request->name;
