@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
     User,
-    address,
+    Address,
     Phone
 };
 
