@@ -8,6 +8,14 @@
                 {{ $message }}
             </div>
         @endif
+
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+            <div class="alert alert-primary" role="alert">
+                {{ $error }}
+            </div>
+        @endif
+
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="background-color: #efefef;">
                 <div class="modal-body text-dark">
