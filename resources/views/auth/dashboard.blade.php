@@ -6,9 +6,9 @@
     <div class="modal-content" style="background-color: #efefef;">
         <div class="modal-body text-dark">
             <h1>Precisamos de um dashboard</h1>
-            {{ $user = Auth::user()->name; }}
+            {{ $user = Auth::user()->name }}
             <br/>
-            {{ $user = Auth::user()->email; }}
+            {{ $user = Auth::user()->email }}
         </div>
     </div>
 </main>
