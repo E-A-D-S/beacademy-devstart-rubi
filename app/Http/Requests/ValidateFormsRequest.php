@@ -29,13 +29,4 @@ class ValidateFormsRequest extends FormRequest
             // 'sale' => '',
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'name.required' => 'O nome é obrigatório',
-            'email.required' => 'O e-mail é obrigatório',
-            'password.required' => 'A senha é obrigatória',
-        ];
-    }
 }
