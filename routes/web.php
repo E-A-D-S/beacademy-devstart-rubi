@@ -28,12 +28,12 @@ Route::controller(AccountController::class)->group(function (){
 });
 
 Route::controller(ProductController::class)->group(function() {
-  Route::get('/produto/novo',  'create')->name('products.create')->middleware('auth', 'CheckIsAdmin');
-  Route::post('/produto/adicionado', 'store')->name('products.store')->middleware('auth', 'CheckIsAdmin');
-  Route::get('/produto/{id}', 'show')->name('products.show')->middleware('auth', 'CheckIsAdmin');
-  Route::get('/produto/{id}/editar', 'edit')->name('products.edit')->middleware('auth', 'CheckIsAdmin');
-  Route::put('/produto/{id}', 'update')->name('products.update');
-  Route::delete('/produto/{id}', 'destroy')->name('products.destroy');
+  Route::get('/produto/novo',  'create')->name('products.create')->middleware('auth', 'admin');
+  Route::post('/produto/adicionado', 'store')->name('products.store')->middleware('auth', 'admin');
+  Route::get('/produto/{id}', 'show')->name('products.show')->middleware('auth', 'admin');
+  Route::get('/produto/{id}/editar', 'edit')->name('products.edit')->middleware('auth', 'admin');
+  Route::put('/produto/{id}', 'update')->name('products.update')->middleware('auth', 'admin');
+  Route::delete('/produto/{id}', 'destroy')->name('products.destroy')->middleware('auth', 'admin');
 });
 
 Route::controller(OrderController::class)->group(function(){

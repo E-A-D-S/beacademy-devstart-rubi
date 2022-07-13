@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckIsAdmin
 {
@@ -16,11 +17,11 @@ class CheckIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = auth()->user();
-        if($user->userType != 1)
-        {
-            return redirect('/dashboard');
+        if(Auth::user() && Auth::user()->userType == 1){
+            return $next($request);
         }
-        return $next($request);
+
+        return redirect()->route('users.login')->with('error', 'você não tem permissão de administraodr.');
+
     }
 }

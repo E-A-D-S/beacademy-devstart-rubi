@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
     User,
-    address,
+    Address,
     Phone
 };
 
@@ -70,18 +70,18 @@ class UserController extends Controller
     }
 
     public function auth(Request $request)
-    {   
-        
+    {
+
             $this->validate($request, [
                 'email' =>  'required',
                 'password' => 'required'
             ]);
-    
+
                 if(auth::attempt(['email' => $request->email, 'password' => $request->password]))
                 {
-                    return redirect()->route('account.index');                
+                    return redirect()->route('account.index');
                 }
-    
+
                 return redirect()->back()->with('danger', 'Email ou senha invalido!');
     }
 }
