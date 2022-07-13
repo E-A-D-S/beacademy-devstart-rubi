@@ -8,12 +8,12 @@
 }
 .header figure{
     width: 100%;
-    height: 375px;
+    height: 280px;
 }
 .header figure img{
     object-fit: cover;
     width: 100%;
-    height: 425px;
+    height: 295px;
 }
 .rating-container{
     transform: rotate(180deg);

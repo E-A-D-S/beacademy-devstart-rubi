@@ -19,22 +19,20 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse max-container" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item p-2"><a href="{{ route('index.index') }}" class="btn btn-outline-dark">inicio</a></li>
-                <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark">Conta</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 3</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 4</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 5</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 6</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark">link 7</a></li>
-                <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark">Contato</a></li>
+                <li class="nav-item p-2"><a href="{{ route('index.index') }}" class="btn btn-outline-dark"><i class="fa fa-store">&nbsp;</i>Produtos</a></li>
+                <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark"><i class="fa fa-user" aria-hidden="true">&nbsp;</i>Conta</a></li>
+                <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark"><i class="fa fa-phone" aria-hidden="true">&nbsp;</i>Contato</a></li>
+                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;</i>Carrinho</a></li>
                 @if(Auth::User())
-                <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark">Logout</a></li>
+                    @if(Auth::User()->userType == 1)
+                        <li class="nav-item p-2"><a href="{{ route('products.create') }}" class="btn btn-outline-dark"><i class="fa-solid fa-rectangle-history-circle-plus"></i>Novo Produto</a></li>
+                    @endif
+                    <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-regular fa-person-to-door">&nbsp;</i>Logout</a></li>
                 @endif
             </ul>
         </nav>
     </header>
     @yield("content")
-
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
