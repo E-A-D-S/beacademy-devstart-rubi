@@ -14,6 +14,7 @@
             <div class="alert alert-primary" role="alert">
                 {{ $error }}
             </div>
+            @endforeach
         @endif
 
         <div class="modal-dialog" role="document">
