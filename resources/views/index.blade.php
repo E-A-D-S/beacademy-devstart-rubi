@@ -4,10 +4,10 @@
 @section("content")
 <main>
     <div class="container mt-5">
-        <div class="card-deck">
+        <div class="card-deck ">
             <div class="row justify-content-between">
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal">
                     <img class="card-img-top md" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
                 </button>
                     <div class="card-body">
@@ -21,36 +21,10 @@
                             <a href="#" class="btn btn-outline-secondary btn-sm">Carrinho</a>
                         </div> 
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                        <small class="text-muted">
-                            <div class="rating-container">
-                                <input type="radio" name="0rating" id="0star-1">
-                                <label for="0star-1">
-                                    <i class="fa-solid fa-star"></i>
-                                </label>
-                                <input type="radio" name="0rating" id="0star-2">
-                                <label for="0star-2">
-                                    <i class="fa-solid fa-star"></i>
-                                </label>
-                                <input type="radio" name="0rating" id="0star-3">
-                                <label for="0star-3">
-                                    <i class="fa-solid fa-star"></i>
-                                </label>
-                                <input type="radio" name="0rating" id="0star-4">
-                                <label for="0star-4">
-                                    <i class="fa-solid fa-star"></i>
-                                </label>
-                                <input type="radio" name="0rating" id="0star-5">
-                                <label for="0star-5">
-                                    <i class="fa-solid fa-star"></i>
-                                </label>
-                            </div>
-                        </small>
-                    </div>
+    
                 </div>
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal">
                     <img class="card-img-top" src="assets/img/products/wine/vinho-fabian.jpg" alt="Card image cap">
                 </button>
                     <div class="card-body">
