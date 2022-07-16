@@ -1,15 +1,14 @@
 @extends("template.layout")
 @section("title", "inicio projeto empresarial")
-
 @section("content")
 <main>
     <div class="container mt-5">
         <div class="card-deck ">
             <div class="row justify-content-between">
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal">
-                    <img class="card-img-top md" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal">
+                        <img class="card-img-top md" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -21,12 +20,12 @@
                             <a href="#" class="btn btn-outline-secondary btn-sm">Carrinho</a>
                         </div> 
                     </div>
-    
                 </div>
+
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal">
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-fabian.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal">
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-fabian.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -66,10 +65,11 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-gheller.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-gheller.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -109,10 +109,11 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-marco.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-marco.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -154,12 +155,13 @@
                 </div>
             </div>
         </div>
+        
         <div class="card-deck">
             <div class="row justify-content-between">
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-viapiana-rose.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-viapiana-rose.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -199,10 +201,11 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-avvocato.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -242,10 +245,11 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-fabian.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-fabian.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -285,10 +289,11 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="card mb-3" style="width: 18rem;">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
-                    <img class="card-img-top" src="assets/img/products/wine/vinho-gheller.jpg" alt="Card image cap">
-                </button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#JanelaModal"/>
+                        <img class="card-img-top" src="assets/img/products/wine/vinho-gheller.jpg" alt="Card image cap">
+                    </button>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -335,23 +340,25 @@
     <!-- Modal -->
     <!-- <div id='JanelaModal' class='modal' tabindex='-1' role='dialog'> -->
     <div class="modal fade" id="JanelaModal" tabindex="-1" role="dialog" aria-labelledby="#JanelaModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                Texto base do modal
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+            </div>
+            </div>
         </div>
-        <div class="modal-body">
-            While para mostar mais detalhadamente
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-        </div>
-        </div>
-    </div>
     </div>
 </main>
 @endsection
