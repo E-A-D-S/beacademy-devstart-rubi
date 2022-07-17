@@ -1,5 +1,13 @@
 # Projeto empresarial: Ecommerce de vinhos
 
+## Tecnologias usadas
+- PHP 8.1
+- Laravel 9
+  - Eloquent ORM
+  - Breeze (autenticação)
+  - Blade (template engine)
+- MySQL / MariaDB
+- Bootstrap 5
 
 ## Passo a passo para subir o servidor
 1. Fazer o clone do projeto:
