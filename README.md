@@ -56,3 +56,72 @@ php artisan db:seed
 php artisan serve
 ```
 
+## Membros da Squad
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Bryan-R-Carvalho">
+        <img src="https://github.com/Bryan-R-Carvalho.png" width="100px;" alt="Bryan Carvalho"/><br>
+        <sub>
+          <b>Bryan Carvalho</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/E-A-D-S">
+        <img src="https://github.com/E-A-D-S.png" width="100px;" alt="Eduardo Araújo"/><br>
+        <sub>
+          <b>Eduardo Araújo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Elivandro">
+        <img src="https://github.com/Elivandro.png" width="100px;" alt="Elivandro"/><br>
+        <sub>
+          <b>Elivandro</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/bielmariano">
+        <img src="https://github.com/bielmariano.png" width="100px;" alt="Gabriel Mariano"/><br>
+        <sub>
+          <b>Gabriel Mariano</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LuanyBoneli">
+        <img src="https://github.com/LuanyBoneli.png" width="100px;" alt="Luany Boneli"/><br>
+        <sub>
+          <b>Luany Boneli</b>
+        </sub>
+      </a>
+    </td>            
+    <td align="center">
+      <a href="https://github.com/MatheusSGomes">
+        <img src="https://github.com/MatheusSGomes.png" width="100px;" alt="Matheus Gomes"/><br>
+        <sub>
+          <b>Matheus Gomes</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/renatadeodorio">
+        <img src="https://github.com/renatadeodorio.png" width="100px;" alt="Renata Deodório"/><br>
+        <sub>
+          <b>Renata Deodório</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/tharsila">
+        <img src="https://github.com/tharsila.png" width="100px;" alt="Tharsila Borges"/><br>
+        <sub>
+          <b>Tharsila Borges</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
