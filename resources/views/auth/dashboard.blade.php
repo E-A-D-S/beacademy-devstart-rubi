@@ -26,7 +26,7 @@
             <div class="col">
                 <div class="card-counter success">
                     <i class="fas fa-wine-glass"></i>
-                    <span class="count-numbers">75</span>
+                    <span class="count-numbers">{{ count($products)}}</span>
                     <span class="count-name">Produtos Disponíveis</span>
                 </div>
             </div>

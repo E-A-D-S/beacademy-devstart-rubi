@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
-    User
+    User,
+    Product
 };
 
 class AccountController extends Controller
@@ -13,7 +14,8 @@ class AccountController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('auth.dashboard', compact('users'));
+        $products = Product::all();
+        return view('auth.dashboard', compact('users', 'products'));
     }
 
     public function logout(Request $request)
