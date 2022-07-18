@@ -1,0 +1,3 @@
+@section('modal')
+
+@endsection
