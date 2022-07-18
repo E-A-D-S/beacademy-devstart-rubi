@@ -48,6 +48,7 @@ class UserController extends Controller
         $user = new User;
         $user->name     = $request->name;
         $user->email    = $request->email;
+        $user->is_admin = 0;
         $user->password = password_hash($request->password, PASSWORD_ARGON2I);
         $user->cpf      = $request->cpf;
         $user->birthday = $request->birthday;
