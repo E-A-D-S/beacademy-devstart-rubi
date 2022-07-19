@@ -15,8 +15,7 @@ class OrderController extends Controller
     public function index()
     {
         $viewData = [];
-        $viewData["title"] = "My Orders - Online Store";
-        $viewData["subtitle"] =  "My Orders";
+        $viewData["title"] = "Meus Pedidos";
         $viewData["orders"] = OrderController::$orders;
         return view('orders.index')->with("viewData", $viewData);
 

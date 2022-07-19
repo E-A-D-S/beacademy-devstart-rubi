@@ -1,6 +1,5 @@
 @extends("template.layout")
 @section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
 @section('content')
     @foreach($viewData["orders"] as $order)
         <div class="card mb-4">
