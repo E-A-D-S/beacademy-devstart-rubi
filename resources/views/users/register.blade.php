@@ -20,9 +20,9 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="background-color: #efefef;">
                 <div class="modal-body text-dark">
-                    <h1 class="mt-3 mb-3">Cadastrar Usuário</h1>
-                    <form method="post" action="{{ route('users.store') }}" class="pl-4 pr-4">
+                    <form method="post" action="{{ route('users.store') }}" class="form-control-lg mb-3">
                         @csrf
+                        <h1 class="mt-3 mb-3">Cadastrar Usuário</h1>
                         <div class="form-group mb-3">
                             <label for="name" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -72,7 +72,7 @@
 
                         <div class="form-group mb-3">
                             <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
+                            <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Cadastrar</button>

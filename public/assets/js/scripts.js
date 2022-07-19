@@ -11,4 +11,5 @@ $(document).ready(function() {
 
     icon.toggleClass('fa-eye-slash fa-eye')
   })
+
 })
