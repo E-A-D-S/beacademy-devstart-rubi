@@ -24,6 +24,7 @@
                 <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark"><i class="fa fa-user" aria-hidden="true">&nbsp;</i>Conta</a></li>
                 <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark"><i class="fa fa-phone" aria-hidden="true">&nbsp;</i>Contato</a></li>
                 <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark"><i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;</i>Carrinho</a></li>
+                <li class="nav-item p-2"><a href="{{ route('orders.index') }}" class="btn btn-outline-dark"><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp;</i>Pedidos</a></li>
                 @if(Auth::User())
                     @if(Auth::User()->userType == 1)
                         <li class="nav-item p-2"><a href="{{ route('products.create') }}" class="btn btn-outline-dark"><i class="fa-solid fa-rectangle-history-circle-plus"></i>Novo Produto</a></li>

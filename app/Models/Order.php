@@ -21,4 +21,9 @@ class Order extends Model
         'updated_at',
         'user_id',
     ];
+
+    public function items()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
