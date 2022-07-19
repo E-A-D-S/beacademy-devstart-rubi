@@ -12,8 +12,7 @@ class Product extends Model
     protected $fillable = [
         'id',
         'name',
-        'description',
-        'category',
+        'category_id',
         'quantity',
         'cost_price',
         'sale_price',
@@ -21,4 +20,8 @@ class Product extends Model
         'created_at',
         'updated_at',
     ];
+    public function categories()
+    {
+        return $this->hasOne(Category::class);
+    }
 }

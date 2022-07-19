@@ -2,7 +2,6 @@
 @section('title', "Dashboard: ". Auth::user()->name)
 
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
 @if(Auth::user()->is_admin)
     <div class="container mt-5">
