@@ -7,6 +7,7 @@ use App\Http\Controllers\{
   AccountController,
   ProductController,
   OrderController,
+  CategoryController,
 };
 
 Route::controller(IndexController::class)->group(function(){
@@ -44,4 +45,12 @@ Route::controller(OrderController::class)->group(function(){
     Route::get('/order/{id}/edit', "edit")->name("orders.edit");
     Route::put('/order/{id}', "update")->name("orders.update");
     Route::delete('/order/{id}', "destroy")->name("orders.destroy");
+});
+Route::controller(CategoryController::class)->group(function(){
+  Route::get('/categoria/novo',  'create')->name("categories.create");
+  Route::post('/categoria/adicionado', 'store')->name("categories.store");
+  Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit");
+  Route::put('/categoria/{id}', 'update')->name("categories.update");
+  Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy");
+  Route::get('/categoria', "show")->name("categories.show");
 });
