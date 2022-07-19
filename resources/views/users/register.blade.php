@@ -72,7 +72,7 @@
 
                         <div class="form-group mb-3">
                             <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="00000000000">
+                            <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
