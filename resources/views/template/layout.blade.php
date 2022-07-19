@@ -24,8 +24,10 @@
                 @if(Auth::User())
                     @if(Auth::User()->userType == 1)
                         <li class="nav-item p-2"><a href="{{ route('products.create') }}" class="btn btn-outline-dark"><i class="fa-solid fa-circle-plus">&nbsp;</i>Novo Produto</a></li>
+                        <li class="nav-item p-2"><a href="{{ route('categories.show') }}" class="btn btn-outline-dark"><i class="fa-solid fa-wine-bottle">&nbsp;</i>Categorias</a></li>
                     @endif
-                    <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-solid fa-door-open">&nbsp;</i>Logout</a></li>
+                      <li class="nav-item p-2"><a href="{{ route('orders.index') }}" class="btn btn-outline-dark"><i class="fa fa-shopping-bag">&nbsp;</i>Pedidos</a></li>
+                      <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-solid fa-door-open">&nbsp;</i>Logout</a></li>
                 @endif
             </ul>
         </nav>

@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index() 
+    public static $orders = [
+        ["id"=>"1","name"=>"Vinho1","description"=>"Suave","category"=>"Vinhos","quantity"=>"5","sale_price"=>"10.90",
+            "image"=>"vinho-fabian.jpg","created_at"=>"2022-07-18 20:42:23","user_id"=>"1"]
+    ];
+
+    public function index()
     {
-        return view("orders.index");
+        $viewData = [];
+        $viewData["title"] = "Meus Pedidos";
+        $viewData["orders"] = OrderController::$orders;
+        return view('orders.index')->with("viewData", $viewData);
+
     }
 
-    public function create() 
+    public function create()
     {
         return view("orders.create");
     }

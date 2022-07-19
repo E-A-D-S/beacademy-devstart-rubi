@@ -25,9 +25,9 @@
   <div class="mb-3">
     <select name="categories" class="form-select" aria-label="Default select example">
         <option>Selecione uma categoria</option>
-        <option value="1">Vinho Branco</option>
-        <option value="2">Vinho seco</option>
-        <option value="3">Vinho tinto</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
     </select>
   </div>
   <div class="mb-3">

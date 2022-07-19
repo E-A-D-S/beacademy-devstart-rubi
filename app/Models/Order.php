@@ -19,5 +19,11 @@ class Order extends Model
         'image',
         'created_at',
         'updated_at',
+        'user_id',
     ];
+
+    public function items()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

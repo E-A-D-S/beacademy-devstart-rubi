@@ -13,12 +13,16 @@ class Product extends Model
         'id',
         'name',
         'description',
-        'category',
         'quantity',
         'cost_price',
         'sale_price',
         'image',
+        'category_id',
         'created_at',
         'updated_at',
     ];
+    public function categories()
+    {
+        return $this->hasOne(Category::class);
+    }
 }
