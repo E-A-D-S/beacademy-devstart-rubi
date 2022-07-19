@@ -21,6 +21,9 @@ return new class extends Migration
             $table->float('cost_price');
             $table->float('sale_price');
             $table->string('image');
+            $table->foreignId('user_id')->constrained('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
