@@ -15,18 +15,18 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="background-color: #efefef;">
       <div class="modal-body text-dark">
-        <form active="" method="post" class="pl-4 pr-4">
+        <form active="" method="post" class="form-control-lg mb-3">
           @csrf
-          <h1 class="mb-3">Recuperar senha</h1>
-          <div class="form-group">
+          <h1 class="mt-3 mb-3">Recuperar senha</h1>
+          <div class="form-group mb-3">
             <label>Email</label>
             <input type="email" class="form-control" placeholder="Digite seu email cadastrado">
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label>Telefone</label>
             <input type="tel" class="form-control" placeholder="Digite seu telefone cadastrado">
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label>CPF</label>
             <input type="text" class="form-control" placeholder="Digite seu CPF cadastrado">
           </div>
