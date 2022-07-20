@@ -37,11 +37,27 @@
         </div>
     @endif
     <div class="form-control-lg" style="background-color: #efefef;">
-        <div class="form-control-lg">
-            <h1>Precisamos de um dashboard</h1>
-            {{ $user = Auth::user()->name }}
-            <br/>
-            {{ $user = Auth::user()->email }}
+        <div class="form-control-lg d-flex justify-content-between">
+            <div class="form-control-lg">
+                <h2>Dashboard</h2>
+                <div>
+                    {{ $user = Auth::user()->name }}
+                </div>
+                <div>
+                    {{ $user = Auth::user()->email }}
+                </div>
+                <div>
+                    {{ $user = Auth::user()->birthday }}
+                </div>
+                <div>
+                    {{ $user = Auth::user()->created_at }}
+                </div>
+            </div>
+            <div class="form-control-lg float-end">
+                <a href="{{ route('orders.index') }}" class="btn btn-outline-dark">
+                    <i class="fa fa-shopping-bag">&nbsp;</i>Pedidos
+                </a>
+            </div>
         </div>
     </div>
 </d>
