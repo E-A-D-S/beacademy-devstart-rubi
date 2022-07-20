@@ -38,7 +38,7 @@ Route::controller(ProductController::class)->group(function() {
 });
 
 Route::controller(OrderController::class)->group(function(){
-    Route::get('/order/index', "index")->name("orders.index");
+    Route::get('/order/index', "index")->name("orders.index")->middleware('auth');
     Route::get('/order/register', "create")->name("orders.create");
     Route::post('/order/save', "store")->name("orders.store");
     Route::get('/order/{id}', 'show')->name('orders.show');
@@ -47,10 +47,10 @@ Route::controller(OrderController::class)->group(function(){
     Route::delete('/order/{id}', "destroy")->name("orders.destroy");
 });
 Route::controller(CategoryController::class)->group(function(){
-  Route::get('/categoria/novo',  'create')->name("categories.create");
-  Route::post('/categoria/adicionado', 'store')->name("categories.store");
-  Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit");
-  Route::put('/categoria/{id}', 'update')->name("categories.update");
-  Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy");
-  Route::get('/categoria', "show")->name("categories.show");
+  Route::get('/categoria/novo',  'create')->name("categories.create")->middleware('auth', 'admin');
+  Route::post('/categoria/adicionado', 'store')->name("categories.store")->middleware('auth', 'admin');
+  Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit")->middleware('auth', 'admin');
+  Route::put('/categoria/{id}', 'update')->name("categories.update")->middleware('auth', 'admin');
+  Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy")->middleware('auth', 'admin');
+  Route::get('/categoria', "show")->name("categories.show")->middleware('auth', 'admin');
 });
