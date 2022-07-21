@@ -55,8 +55,12 @@
                             <input type="text" class="form-control" id="address" name="address">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="description">Bairro</label>
+                            <label for="district">Bairro</label>
                             <input type="text" class="form-control" name="district" id="district">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="postal_code">CEP</label>
+                            <input type="text" class="form-control" name="postal_code" id="postal_code">
                         </div>
                         <div class="form-group mb-3">
                             <label for="city" class="form-label">Cidade</label>
