@@ -19,9 +19,9 @@ class UserController extends Controller
 
     public function __construct(User $user, Address $address, Phone $phone)
     {
-        $this->model = $user;
-        $this->model = $address;
-        $this->model = $phone;
+        $this->user = $user;
+        $this->address = $address;
+        $this->phone = $phone;
     }
 
     public function login()
@@ -45,30 +45,12 @@ class UserController extends Controller
 
     public function store(ValidateFormsRequest $request)
     {
-        $user = new User;
-        $user->name     = $request->name;
-        $user->email    = $request->email;
-        $user->is_admin = 0;
-        $user->password = password_hash($request->password, PASSWORD_ARGON2I);
-        $user->cpf      = $request->cpf;
-        $user->birthday = $request->birthday;
-        $user->save();
+        $user = $this->user->store($request);
+        $this->address->store($request, $user);
+        $this->phone->store($request, $user);
 
-        $phone = new Phone;
-        $phone->phone   = $request->phone;
-        $phone->user_id = $user->id;
-        $phone->save();
+        return redirect()->route('users.create')->with('success', 'Cadastro realizado com sucesso!!!');
 
-        $address = new Address;
-        $address->address   = $request->address;
-        $address->city      = $request->city;
-        $address->state     = $request->state;
-        $address->user_id   = $user->id;
-        $address->save();
-
-        $message = "Cadastro realizado com sucesso!!!";
-
-        return view('users.register', compact('message'));
     }
 
     public function auth(Request $request)

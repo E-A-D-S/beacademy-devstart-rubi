@@ -3,22 +3,24 @@
 
 @section('content')
     <main class="container w-50 mt-5">
-        @if(isset($message))
-            <div class="alert alert-primary" role="alert">
-                {{ $message }}
+        @if(session()->has('success'))
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{ session()->get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
         @if($errors->any())
             @foreach($errors->all() as $error)
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ $error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endforeach
         @endif
 
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="background-color: #efefef;">
+            <div class="modal-content p-5" style="background-color: #efefef;">
                 <div class="modal-body text-dark">
                     <form method="post" action="{{ route('users.store') }}" class="form-control-lg mb-3">
                         @csrf
@@ -48,12 +50,14 @@
                             <label for="phone" class="form-label">Telefone</label>
                             <input type="phone" class="form-control" id="phone" name="phone">
                         </div>
-
                         <div class="form-group mb-3">
                             <label for="address" class="form-label">Endereço</label>
                             <input type="text" class="form-control" id="address" name="address">
                         </div>
-
+                        <div class="form-group mb-3">
+                            <label for="description">Bairro</label>
+                            <input type="text" class="form-control" name="district" id="district">
+                        </div>
                         <div class="form-group mb-3">
                             <label for="city" class="form-label">Cidade</label>
                             <input type="text" class="form-control" id="city" name="city">
@@ -81,5 +85,4 @@
             </div>
         </div>
     </main>
-
 @endsection
