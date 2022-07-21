@@ -11,8 +11,9 @@
         @endforeach
     @endif
     @if(session('danger'))
-        <div class="alert alert-warning" role="alert">
-            {{ session('danger') }}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Atenção!</strong> {{ session()->get('danger') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     <div class="form-group" style="background-color: #efefef;">
@@ -36,16 +37,16 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-3 text-center">
-                <div class="col-2 float-right">
+            <div class="row mt-3 p-3 text-center">
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                <div class="mt-3">
                     <input type="checkbox" name="remember" id="remember"/>
                     <label for="remember">Lembrar-me</label>
                 </div>
-                <div class="col-3">
+                <div class="mt-2">
                     <a href="{{ route('users.recovery') }}">Esqueci minha senha</a>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block mt-3" >Entrar</button>
             <div class="text-center mt-4 mb-1">
                 <span>Não possui cadastro? </span>&nbsp;
                 <a href="{{ route('users.create') }}">Cadastre-se aqui</a>
