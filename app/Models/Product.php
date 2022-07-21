@@ -27,4 +27,22 @@ class Product extends Model
         return $this->hasOne(Category::class);
     }
 
+    public function getUsers(string $search = null)
+    {
+        $users = $this->where(function ($query) use ($search)
+        {
+            if($search){
+                $query->where('email', $search);
+                $query->orWhere('name', 'LIKE', "%{$search}%");
+            }
+        })->paginate(5);
+
+        return $users;
+    }
+
+    public function getProducts()
+    {
+        
+    }
+
 }
