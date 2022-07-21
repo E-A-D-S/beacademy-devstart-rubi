@@ -27,6 +27,8 @@ Route::controller(AccountController::class)->group(function (){
   Route::get("/dashboard", "index")->name("account.index")->middleware('auth');
   Route::get("/user/sair", "logout")->name("account.logout")->middleware('auth');
   Route::get('/dashboard', "index")->name('account.index')->middleware('auth');
+  Route::get('/dashboard/edit', "editdashboard")->name('account.update')->middleware('auth');
+  Route::put('/dashboard/{id}/edited', "updatedashboard")->name('account.updated')->middleware('auth');
   Route::get('/new/address', "regAddress")->name('regaddress.index')->middleware('auth');
   Route::get('/new/phone', "regPhone")->name('regphone.index')->middleware('auth');
   Route::get('/update/{id}/address', "editaddress")->name('editaddress.index')->middleware('auth');
@@ -57,6 +59,7 @@ Route::controller(OrderController::class)->group(function(){
     Route::put('/order/{id}', "update")->name("orders.update");
     Route::delete('/order/{id}', "destroy")->name("orders.destroy");
 });
+
 Route::controller(CategoryController::class)->group(function(){
   Route::get('/categoria/novo',  'create')->name("categories.create")->middleware('auth', 'admin');
   Route::post('/categoria/adicionado', 'store')->name("categories.store")->middleware('auth', 'admin');

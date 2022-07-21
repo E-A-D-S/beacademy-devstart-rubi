@@ -17,7 +17,7 @@
                                 <p>de: <s>368,90 Reais</s></p>
                                 <p>por: <strong><i>279,80 Reais</i></strong></p>
                             <a href="#" class="btn btn-outline-primary btn-sm">Comprar</a>
-                            <a href="#" class="btn btn-outline-secondary btn-sm">Carrinho</a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-cart-plus">&nbsp;</i>Carrinho</a>
                         </div> 
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-cart-plus">&nbsp;</i>Adicionar ao Carrinho</button>
                 </div>
                 </div>
             </div>

@@ -62,7 +62,7 @@
                         <div class="d-flex">
                             <h2>Dashboard</h2>
                             <div style="margin-left: 10px">
-                                <a href="#" class="btn btn-outline-dark btn-sm">Editar</a>
+                                <a href="{{ route('account.update') }}" class="btn btn-outline-dark btn-sm">Editar</a>
                             </div>
                         </div>
                     </div>
@@ -88,10 +88,10 @@
                             @if(Auth::User())
                                 @if(Auth::User()->userType == 1)
                                     <a href="{{ route('products.create') }}" class="btn btn-outline-dark">
-                                        <i class="fa fa-shopping-bag">&nbsp;</i>Novo produto
+                                        <i class="fa-solid fa-circle-plus">&nbsp;</i>Novo produto
                                     </a>
                                     <a href="{{ route('categories.show') }}" class="btn btn-outline-dark">
-                                        <i class="fa fa-shopping-bag">&nbsp;</i>Categorias
+                                        <i class="fa-regular fa-square-plus">&nbsp;</i>Categorias
                                     </a>
                                 @endif
                             @endif
@@ -136,10 +136,12 @@
                             <div>
                                 {{ $address->address }}
                                 {{ $address->district }}
-                                {{ formatCep($address->zip_code) }}
                             </div>
                             <div>
+                                {{ formatCep($address->postal_code) }}
                                 {{ $address->city }}
+                            </div>
+                            <div>
                                 {{ $address->state }}
                                 {{ $address->country }}
                             </div>

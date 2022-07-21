@@ -16,7 +16,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <div class="form-group" style="background-color: #efefef;">
+    <div class="form-group p-5 mb-5" style="background-color: #efefef;">
         <form action="{{ route('users.auth') }}" method="post" class="form-control-lg mb-3">
             @csrf
             <h1 class="mt-3 mb-3">Login</h1>
