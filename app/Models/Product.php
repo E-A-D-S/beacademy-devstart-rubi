@@ -21,8 +21,10 @@ class Product extends Model
         'created_at',
         'updated_at',
     ];
+
     public function categories()
     {
         return $this->hasOne(Category::class);
     }
+
 }

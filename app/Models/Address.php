@@ -12,6 +12,7 @@ class Address extends Model
     protected $fillable = [
         'postal_code',
         'address',
+        'district',
         'city',
         'country',
         'state',
@@ -23,5 +24,18 @@ class Address extends Model
     public function User()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function store($data, $id)
+    {
+        $address    = new Address;
+        $address->address   = $data->address;
+        $address->district  = $data->district;
+        $address->postal_code  = $data->postal_code;
+        $address->city      = $data->city;
+        $address->state     = $data->state;
+        $address->country   = $data->country;
+        $address->user_id   = $id;
+        $address->save();
     }
 }
