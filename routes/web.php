@@ -26,6 +26,17 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(AccountController::class)->group(function (){
   Route::get("/dashboard", "index")->name("account.index")->middleware('auth');
   Route::get("/user/sair", "logout")->name("account.logout")->middleware('auth');
+  Route::get('/dashboard', [AccountController::class, "index"])->name('account.index')->middleware('auth');
+  Route::get('/new/address', [AccountController::class, "regAddress"])->name('regaddress.index')->middleware('auth');
+  Route::get('/new/phone', [AccountController::class, "regPhone"])->name('regphone.index')->middleware('auth');
+  Route::get('/update/{id}/address', [AccountController::class, "editaddress"])->name('editaddress.index')->middleware('auth');
+  Route::get('/update/{id}/phone', [AccountController::class, "editphone"])->name('editphone.index')->middleware('auth');
+  Route::put('/address/{id}/updated', [AccountController::class, "updateaddress"])->name('updateaddress.updated')->middleware('auth');
+  Route::put('/phone/{id}/updated', [AccountController::class, "updatephone"])->name('updatephone.updated')->middleware('auth');
+  Route::post('/address/{id}/registered', [AccountController::class, "storeaddress"])->name('create.address')->middleware('auth');
+  Route::post('/phone/{id}/registered', [AccountController::class, "storephone"])->name('create.phone')->middleware('auth');
+  Route::delete("/phone/{id}/delete", [AccountController::class, "phonedestroy"])->name("phone.destroy")->middleware('auth');
+  Route::delete("/address/{id}/delete", [AccountController::class, "addressdestroy"])->name("address.destroy")->middleware('auth');
 });
 
 Route::controller(ProductController::class)->group(function() {
