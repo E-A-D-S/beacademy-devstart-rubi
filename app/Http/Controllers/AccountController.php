@@ -44,6 +44,32 @@ class AccountController extends Controller
         return redirect()->route('users.login')->with('danger', 'Sessao encerrada com sucesso.');
     }
 
+    public function editdashboard()
+    {
+        return view('auth.userdashboard');
+    }
+
+    public function updatedashboard(request $request, $id)
+    {
+        if(!$user = $this->user->find($id)){
+
+            return redirect()->route("account.index");
+
+        }
+
+        $data = $request->only('name', 'email', 'birthday', 'cpf');
+
+        if($request->password){
+
+            $data['password'] = password_hash($request->password, PASSWORD_ARGON2I);
+
+        }
+
+        $user->update($data);
+
+        return redirect()->route("account.index")->with('edit', "Dados pessoais atualizado com sucesso!");
+    }
+
     public function regaddress()
     {
         return view('auth.address');
@@ -95,15 +121,13 @@ class AccountController extends Controller
 
     public function updatephone(request $request, $id)
     {
-        if(!$user = $this->phone->find($id)){
+        if(!$phone = $this->phone->find($id)){
 
             return redirect()->route("account.index");
 
         }
         $data = $request->all();
-        $data['user_id'] = $user->id;
-
-        $user->update($data);
+        $phone->update($data);
 
         return redirect()->route("account.index")->with('edit', "Telefone atualizado com sucesso!");
 
@@ -111,15 +135,14 @@ class AccountController extends Controller
 
     public function updateaddress(request $request, $id)
     {
-        if(!$user = $this->phone->find($id)){
+        if(!$address = $this->address->find($id)){
 
             return redirect()->route("account.index");
 
         }
         $data = $request->all();
-        $data['user_id'] = $user->id;
 
-        $user->update($data);
+        $address->update($data);
 
         return redirect()->route("account.index")->with('edit', "Endereço atualizado com sucesso!");
 
