@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->string('phone');
-            $table->string('description');
+            $table->string('description')->nullable;
             $table->foreignId('user_id')->constrained('id')->on('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
