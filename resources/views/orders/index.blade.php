@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{ $item->getId() }}</td>
                             <td>{{ $item->getProduct()->getName()}}</td>
-                            <td>${{ $item->getPrice() }}</td>
+                            <td>R${{ formatMoney($item->getPrice()) }}</td>
                             <td>{{ $item->getQuantity() }}</td>
                         </tr>
                     </tbody>

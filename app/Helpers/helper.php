@@ -2,7 +2,7 @@
 
     function formatDateTime($datetime)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d', $datetime)->format('d/m/Y');
+        return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $datetime)->format('d/m/Y - H:i');
     }
 
     function formatCnpjCpf($docNumber)
@@ -12,7 +12,7 @@
 
         if (strlen($cnpj_cpf) === $CPF_LENGTH) {
             return preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $cnpj_cpf);
-        } 
+        }
 
         return preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", "\$1.\$2.\$3/\$4-\$5", $cnpj_cpf);
     }
@@ -36,4 +36,10 @@
 
         return preg_replace("/(\d{5})(\d{3})/", "\$1-\$2", $cep);
 
+    }
+
+    function formatMoney($money)
+    {
+        $clean_money = str_replace('.','',$money);
+        return number_format($clean_money,2,',','.');
     }
