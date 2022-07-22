@@ -74,7 +74,7 @@
                                 {{ Auth::user()->email }}
                             </div>
                             <div>
-                                {{ formatDateTime(Auth::user()->birthday) }}
+                                {{ formatDate(Auth::user()->birthday) }}
                             </div>
                             <div>
                             {{ formatCnpjCpf(Auth::user()->cpf) }}

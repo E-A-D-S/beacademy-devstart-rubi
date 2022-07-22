@@ -8,7 +8,7 @@
                 Pedido #{{ $order->getId() }}
             </div>
             <div class="card-body">
-                <b>Data:</b> {{ $order->getCreatedAt() }}<br/>
+                <b>Data:</b> {{ formatDateTime($order->getCreatedAt()) }}<br/>
                 <table class="table table-bordered table-striped text-center mt-3">
                     <thead>
                     <tr>

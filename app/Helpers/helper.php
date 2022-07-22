@@ -5,6 +5,11 @@
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $datetime)->format('d/m/Y - H:i');
     }
 
+    function formatDate($date)
+    {
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('d/m/Y');
+    }
+
     function formatCnpjCpf($docNumber)
     {
         $CPF_LENGTH = 11;
