@@ -28,16 +28,20 @@
               </select>
             </div>
             <div class="mb-3">
+              <label for="description" class="form-label">Descrição</label>
+              <textarea class="form-control" id="description" name="description" style="resize: none " maxlength="255"></textarea>
+            </div>
+            <div class="mb-3">
               <label for="quantity" class="form-label">Quantidade</label>
-              <input type="number" class="form-control" id="quantity" name="quantity">
+              <input type="number" class="form-control" id="quantity" name="quantity" min="1">
             </div>
             <div class="mb-3">
               <label for="cost" class="form-label">Preço de Custo</label>
-              <input type="text" class="form-control" id="cost" name="cost">
+              <input type="text" class="form-control" id="cost" name="cost_price">
             </div>
             <div class="mb-3">
-              <label for="value" class="form-label">Preço de Venda</label>
-              <input type="text" class="form-control" id="value" name="value">
+              <label for="sale" class="form-label">Preço de Venda</label>
+              <input type="text" class="form-control" id="sale" name="sale_price">
             </div>
             <div class="mb-3">
               <label for="image" class="form-label"> Selecione uma Imagem</label>
