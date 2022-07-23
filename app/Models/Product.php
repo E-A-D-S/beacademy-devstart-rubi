@@ -52,8 +52,8 @@ class Product extends Model
         })->paginate(9);
         
         return $products;
-
-public function getId()
+    }
+    public function getId()
     {
         return $this->attributes['id'];
     }
