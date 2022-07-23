@@ -10,14 +10,12 @@ use App\Models\{
 class IndexController extends Controller
 {
     public function __construct(Product $products) {
-        $this->products = $products;
+        $this->productsModel = $products;
     }
 
     public function index(Request $request)
     {
-        $products = Product::paginate(9);
-        // $products = $this->model->getUsers($request->search ?? '');
-        // $this->products->getProducts();
+        $products = $this->productsModel->getProducts($request->search ?? '');
         return view('index', compact('products'));
     }
 
