@@ -26,6 +26,19 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(AccountController::class)->group(function (){
   Route::get("/dashboard", "index")->name("account.index")->middleware('auth');
   Route::get("/user/sair", "logout")->name("account.logout")->middleware('auth');
+  Route::get('/dashboard', "index")->name('account.index')->middleware('auth');
+  Route::get('/dashboard/edit', "editdashboard")->name('account.update')->middleware('auth');
+  Route::put('/dashboard/{id}/edited', "updatedashboard")->name('account.updated')->middleware('auth');
+  Route::get('/new/address', "regAddress")->name('regaddress.index')->middleware('auth');
+  Route::get('/new/phone', "regPhone")->name('regphone.index')->middleware('auth');
+  Route::get('/update/{id}/address', "editaddress")->name('editaddress.index')->middleware('auth');
+  Route::get('/update/{id}/phone', "editphone")->name('editphone.index')->middleware('auth');
+  Route::put('/address/{id}/updated', "updateaddress")->name('updateaddress.updated')->middleware('auth');
+  Route::put('/phone/{id}/updated',  "updatephone")->name('updatephone.updated')->middleware('auth');
+  Route::post('/address/{id}/registered', "storeaddress")->name('create.address')->middleware('auth');
+  Route::post('/phone/{id}/registered', "storephone")->name('create.phone')->middleware('auth');
+  Route::delete("/phone/{id}/delete", "phonedestroy")->name("phone.destroy")->middleware('auth');
+  Route::delete("/address/{id}/delete", "addressdestroy")->name("address.destroy")->middleware('auth');
 });
 
 Route::controller(ProductController::class)->group(function() {
@@ -38,7 +51,7 @@ Route::controller(ProductController::class)->group(function() {
 });
 
 Route::controller(OrderController::class)->group(function(){
-    Route::get('/order/index', "index")->name("orders.index");
+    Route::get('/order/index', "index")->name("orders.index")->middleware('auth');
     Route::get('/order/register', "create")->name("orders.create");
     Route::post('/order/save', "store")->name("orders.store");
     Route::get('/order/{id}', 'show')->name('orders.show');
@@ -46,11 +59,12 @@ Route::controller(OrderController::class)->group(function(){
     Route::put('/order/{id}', "update")->name("orders.update");
     Route::delete('/order/{id}', "destroy")->name("orders.destroy");
 });
+
 Route::controller(CategoryController::class)->group(function(){
-  Route::get('/categoria/novo',  'create')->name("categories.create");
-  Route::post('/categoria/adicionado', 'store')->name("categories.store");
-  Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit");
-  Route::put('/categoria/{id}', 'update')->name("categories.update");
-  Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy");
-  Route::get('/categoria', "show")->name("categories.show");
+  Route::get('/categoria/novo',  'create')->name("categories.create")->middleware('auth', 'admin');
+  Route::post('/categoria/adicionado', 'store')->name("categories.store")->middleware('auth', 'admin');
+  Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit")->middleware('auth', 'admin');
+  Route::put('/categoria/{id}', 'update')->name("categories.update")->middleware('auth', 'admin');
+  Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy")->middleware('auth', 'admin');
+  Route::get('/categoria', "show")->name("categories.show")->middleware('auth', 'admin');
 });

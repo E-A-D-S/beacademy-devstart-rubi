@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,11 +19,11 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->paragraph(),
-            'category' => $this->faker->name(),
+            'description' => $this->faker->paragraph(2),
+            'category_id' => Category::All()->random()->id,
             'quantity' => $this->faker->numberBetween(1, 99),
-            'cost_price' => $this->faker->randomFloat(2, 00.00, 99.99),
-            'sale_price' => $this->faker->randomFloat(2, 00.00, 99.99),
+            'cost_price' => $this->faker->randomFloat(2, 100, 900),
+            'sale_price' => $this->faker->randomFloat(2, 1000, 2.000),
             'created_at' => now(),
             'updated_at' => now(),
         ];

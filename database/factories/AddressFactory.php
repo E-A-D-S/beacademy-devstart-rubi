@@ -19,6 +19,7 @@ class AddressFactory extends Factory
     {
         return [
             'postal_code' => $this->faker->postcode(),
+            'district' => $this->faker->city(),
             'address' => $this->faker->address(),
             'city' => $this->faker->city(),
             'country' => $this->faker->country(),
