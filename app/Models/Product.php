@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\HttpFoundation\Request;
 
 class Product extends Model
 {
@@ -39,8 +40,16 @@ class Product extends Model
         return $users;
     }
 
-    public function getProducts()
+    public function getProducts(string $search = null)
     {
+        $products = $this->where(function ($query) use ($search)
+        {
+            if($search) {
+                $query->where('name', 'LIKE', "%{$search}%");
+                $query->orWhere('category', 'LIKE', "%{$search}%");
+            }
+        })->paginate(9);
         
+        return $products;
     }
 }
