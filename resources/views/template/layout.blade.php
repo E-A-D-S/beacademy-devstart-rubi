@@ -15,11 +15,21 @@
         <div class="box">
             <p>Você tem 18 anos ou mais?</p>
             <div class="box-btns">
-                <button class="box-btn box-btn-outline">NÃO</button>
-                <button class="box-btn">SIM</button>
+                <button type="submit" onclick="notAdult()" class="box-btn box-btn-outline" id="btn-age-no">NÃO</button>
+                <button type="submit" onclick="adult()" class="box-btn" id="btn-age-yes">SIM</button>
             </div>
         </div>
     </div>
+
+    <div class="overlay-age-wall-warning">
+        <div class="box">
+            <p>Você precisa ter 18 anos ou mais para consumir bebidas alcoólicas.</p>
+            <div class="box-btns">
+                <button type="submit" onclick="back()" class="box-btn box-btn" id="btn-age-no">VOLTAR</button>
+            </div>
+        </div>
+    </div>
+
     <header class="header">
         <figure>
             <img src="{{ asset('assets/img/banner-bottles.jpg') }}" alt="imagem de garrafas vazias"/>
