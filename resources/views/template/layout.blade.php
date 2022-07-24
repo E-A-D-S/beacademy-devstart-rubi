@@ -20,7 +20,7 @@
                 <li class="nav-item p-2"><a href="{{ route('index.index') }}" class="btn btn-outline-dark"><i class="fa fa-store">&nbsp;</i>Produtos</a></li>
                 <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark"><i class="fa fa-user">&nbsp;</i>Conta</a></li>
                 <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark"><i class="fa fa-phone">&nbsp;</i>Contato</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark"><i class="fa fa-shopping-cart">&nbsp;</i>Carrinho</a></li>
+                <li class="nav-item p-2"><a href="{{ route('cart.show') }}" class="btn btn-outline-dark"><i class="fa fa-shopping-cart">&nbsp;</i>Carrinho</a></li>
                 @if(Auth::User())
                       <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-solid fa-door-open">&nbsp;</i>Logout</a></li>
                 @endif

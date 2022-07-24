@@ -5,7 +5,8 @@ use App\Http\Controllers\{
   IndexController,
   UserController,
   AccountController,
-  ProductController,
+    CartController,
+    ProductController,
   OrderController,
   CategoryController,
 };
@@ -67,4 +68,8 @@ Route::controller(CategoryController::class)->group(function(){
   Route::put('/categoria/{id}', 'update')->name("categories.update")->middleware('auth', 'admin');
   Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy")->middleware('auth', 'admin');
   Route::get('/categoria', "show")->name("categories.show")->middleware('auth', 'admin');
+});
+
+Route::controller(CartController::class)->group(function(){
+  Route::get('/cart', 'show')->name('cart.show')->middleware('auth');
 });
