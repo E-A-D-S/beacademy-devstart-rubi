@@ -14,8 +14,10 @@
     <div class="overlay-age-wall">
         <div class="box">
             <p>Você tem 18 anos ou mais?</p>
-            <button class="btn-age-wall">NÃO</button>
-            <button class="btn-age-wall">SIM</button>
+            <div class="box-btns">
+                <button class="box-btn box-btn-outline">NÃO</button>
+                <button class="box-btn">SIM</button>
+            </div>
         </div>
     </div>
     <header class="header">
