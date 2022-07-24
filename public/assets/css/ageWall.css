@@ -4,7 +4,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -39,4 +39,15 @@
   background-color: transparent;
   color: #9B0000;
   border: 1px solid #9B0000;
+}
+
+.overlay-age-wall-warning {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
