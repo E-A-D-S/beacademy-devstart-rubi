@@ -4,19 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public static $orders = [
-        ["id"=>"1","name"=>"Vinho1","description"=>"Suave","category"=>"Vinhos","quantity"=>"5","sale_price"=>"10.90",
-            "image"=>"vinho-fabian.jpg","created_at"=>"2022-07-18 20:42:23","user_id"=>"1"]
-    ];
 
     public function index()
     {
         $viewData = [];
         $viewData["title"] = "Meus Pedidos";
-        $viewData["orders"] = OrderController::$orders;
+        $viewData["orders"] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();
         return view('orders.index')->with("viewData", $viewData);
 
     }

@@ -27,7 +27,6 @@ class User extends Authenticatable
         'birthday',
         'created_at',
         'updated_at',
-        'birthday',
     ];
 
     /**
@@ -48,6 +47,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId()
+    {
+        return $this->attributes['id'];
+    }
 
     public function addresses()
     {

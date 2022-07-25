@@ -4,6 +4,15 @@
 <main>
     <div class="container mt-5">
         <div class="card-deck ">
+            <div class="container mt-5 mb-5 w-50">
+                <form action="{{ route('index.index') }}" method="GET">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded" name="search" id="search" placeholder="Ex: Vinho tinto suave..." />
+                        <button type="submit" class="btn btn-outline-primary">Busca vinho</button>
+                    </div>
+                </form>
+            </div>
+
             <div class="row justify-content-between">
                 @foreach($products as $product)
                     <div class="card" style="width: 18rem;">
