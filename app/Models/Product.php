@@ -36,7 +36,6 @@ class Product extends Model
         {
             if($search) {
                 $query->where('name', 'LIKE', "%{$search}%");
-                $query->orWhere('category', 'LIKE', "%{$search}%");
             }
         })->paginate(9);
         
