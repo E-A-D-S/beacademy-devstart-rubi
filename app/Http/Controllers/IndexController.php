@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{
-    Product
+    Product,
+    User
 };
 
 class IndexController extends Controller

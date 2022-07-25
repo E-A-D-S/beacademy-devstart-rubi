@@ -15,10 +15,10 @@
 
             <div class="row justify-content-between">
                 @foreach($products as $product)
-                    <div class="card mb-3" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;">
                         <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="{{ "#JanelaModal".$product->id }}">
                             @if($product->image)
-                                <img class="card-img-top md" src="{{ $product->image }}" alt="Card image cap">
+                                <img src="{{ asset("storage/".$product->image) }}" class="card-img-top" alt="...">
                             @else    
                                 <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                             @endif
@@ -28,11 +28,19 @@
                             <p class="card-text">{{ Str::limit($product->description, '65') }}</p>
                             <div>
                                 <hr/>
+                                <?php
+                                    $category_name = DB::table('categories')->select('name')->where('id','=', $product->category_id)->get();
+                                ?>
+                                    <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                                     <p>de: <s>R$ {{ ($product->sale_price) * 1.5 }}</s></p>
                                     <p>por: <strong><i>R$ {{ $product->sale_price }}</i></strong></p>
                                 <a href="#" class="btn btn-outline-primary btn-sm">Comprar</a>
                                 <a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-cart-plus">&nbsp;</i>Carrinho</a>
-                            </div> 
+                            </div>
+                            <br>
+                            @auth
+                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                            @endauth
                         </div>
                     </div>
                 @endforeach
@@ -52,10 +60,11 @@
                     </div>
                     <div class="modal-body">
                         @if($product->image)
-                            <img class="card-img-top md" src="{{ $product->image }}" alt="Card image cap">
+                            <img class="card-img-top md" src="{{ asset("storage/".$product->image) }}" alt="Card image cap">
                         @else    
                             <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif
+                        <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                         <ul class="list-group list-group-flush text-center mt-5">
                             <li class="list-group-item">{{ $product->description }}</li>
                             <li class="list-group-item">De: <s>R$ {{ ($product->sale_price) * 1.5 }}</s> por: <strong><i>R$ {{ $product->sale_price }}</i></strong></li>

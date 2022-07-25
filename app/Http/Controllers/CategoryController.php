@@ -38,11 +38,4 @@ class CategoryController extends Controller{
         $category->update($data);
         return redirect()->route('categories.show')->with('success', 'Categoria atualizada com sucesso!');
     }
-    public function destroy($id){
-        if(!$category = $this->model->find($id)){
-            return redirect()->route('categories.show');
-        }
-        $category->delete();
-        return redirect()->route('categories.show')->with('success', 'Categoria deletada com sucesso!');
-    }
 }

@@ -24,12 +24,7 @@
                         <td>{{ $category->id }}</td>
                         <td>{{ $category->name }}</td>
                         <td>
-                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                                <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                            </form>
+                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-warning">Editar</a>
                         </td>
                     </tr>
                     @endforeach

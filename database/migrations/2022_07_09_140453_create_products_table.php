@@ -25,6 +25,7 @@ return new class extends Migration
             $table->float('cost_price');
             $table->float('sale_price');
             $table->string('image')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
