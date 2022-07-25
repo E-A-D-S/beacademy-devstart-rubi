@@ -10,7 +10,6 @@
                         <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="{{ "#JanelaModal".$product->id }}">
                             @if($product->image)
                                 <img src="{{ asset("storage/".$product->image) }}" class="card-img-top" alt="...">
-
                             @else    
                                 <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                             @endif
@@ -20,6 +19,10 @@
                             <p class="card-text">{{ Str::limit($product->description, '65') }}</p>
                             <div>
                                 <hr/>
+                                <?php
+                                    $category_name = DB::table('categories')->select('name')->where('id','=', $product->category_id)->get();
+                                ?>
+                                    <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                                     <p>de: <s>R$ {{ ($product->sale_price) * 1.5 }}</s></p>
                                     <p>por: <strong><i>R$ {{ $product->sale_price }}</i></strong></p>
                                 <a href="#" class="btn btn-outline-primary btn-sm">Comprar</a>
@@ -52,6 +55,7 @@
                         @else    
                             <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif
+                        <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                         <ul class="list-group list-group-flush text-center mt-5">
                             <li class="list-group-item">{{ $product->description }}</li>
                             <li class="list-group-item">De: <s>R$ {{ ($product->sale_price) * 1.5 }}</s> por: <strong><i>R$ {{ $product->sale_price }}</i></strong></li>
