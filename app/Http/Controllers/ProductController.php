@@ -44,11 +44,22 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $product = Product::find($id);
+        return view('products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['category_id'] = $request->categories;
+        
+        if($request->image){
+            $file = $request['image'];
+            $path = $file->store('img/products', 'public');
+            $data['image'] = $path;
+        }
+        $this->product->find($id)->update($data);
+        return redirect()->route('products.edit', $id)->with('success', 'Produto atualizado com sucesso!!!');
     }
 }

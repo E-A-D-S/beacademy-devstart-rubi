@@ -37,11 +37,11 @@
             </div>
             <div class="mb-3">
               <label for="cost" class="form-label">Preço de Custo</label>
-              <input type="text" class="form-control" id="cost" name="cost_price">
+              <input type="number" class="form-control" id="cost" name="cost_price">
             </div>
             <div class="mb-3">
               <label for="sale" class="form-label">Preço de Venda</label>
-              <input type="text" class="form-control" id="sale" name="sale_price">
+              <input type="number" class="form-control" id="sale" name="sale_price">
             </div>
             <div class="mb-3">
               <label for="image" class="form-label"> Selecione uma Imagem</label>
