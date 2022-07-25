@@ -5,7 +5,8 @@ use App\Http\Controllers\{
   IndexController,
   UserController,
   AccountController,
-  ProductController,
+    CartController,
+    ProductController,
   OrderController,
   CategoryController,
 };
@@ -66,4 +67,8 @@ Route::controller(CategoryController::class)->group(function(){
   Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit")->middleware('auth', 'admin');
   Route::put('/categoria/{id}', 'update')->name("categories.update")->middleware('auth', 'admin');
   Route::get('/categoria', "show")->name("categories.show")->middleware('auth', 'admin');
+});
+
+Route::controller(CartController::class)->group(function(){
+  Route::get('/cart', 'show')->name('cart.show')->middleware('auth');
 });
