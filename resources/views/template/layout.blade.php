@@ -20,16 +20,39 @@
                 <li class="nav-item p-2"><a href="{{ route('index.index') }}" class="btn btn-outline-dark"><i class="fa fa-store">&nbsp;</i>Produtos</a></li>
                 <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark"><i class="fa fa-user">&nbsp;</i>Conta</a></li>
                 <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark"><i class="fa fa-phone">&nbsp;</i>Contato</a></li>
-                <li class="nav-item p-2"><a href="#" class="btn btn-outline-dark"><i class="fa fa-shopping-cart">&nbsp;</i>Carrinho</a></li>
+                <li class="nav-item p-2">
+                    @if(session('cart'))
+                        <a href="{{ route('index.cart') }}" class=" btn btn-outline-dark">
+                            <i class="fa fa-shopping-cart">&nbsp;</i>
+                            Carrinho
+                            <span class="badge rounded-pill bg-danger">{{ count(session('cart')) }}</span>
+                        </a>
+                    @else
+                </li>
+                <li class="nav-item p-2">
+                    <a href="" role="button" class="btn btn-outline-dark">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Carrinho vazio
+                    </a> 
+                </li>  
+                    @endif
+                
                 @if(Auth::User())
-                      <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-solid fa-door-open">&nbsp;</i>Logout</a></li>
+                    <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-solid fa-door-open">&nbsp;</i>Logout</a></li>
                 @endif
             </ul>
         </nav>
     </header>
     @yield("content")
 </body>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
+</script>
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
+
+@yield('scripts')
+
 </html>
