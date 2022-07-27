@@ -13,6 +13,13 @@ use App\Http\Controllers\{
 Route::controller(IndexController::class)->group(function(){
     Route::get('/', "index")->name("index.index");
     Route::get('/contato', "contact")->name("index.contact");
+
+    Route::get('/cart', 'cart')->name("index.cart");
+    Route::get('/buy-direct/{id}', 'buyDirect')->name("index.buyDirect");
+    Route::get('/add-to-cart/{id}', 'addCart')->name("index.addCart");
+    Route::put('/update-cart', 'update')->name("index.updateCart");
+    Route::delete('/remove-from-cart', 'delete')->name("index.remove");
+    Route::get('/proceed-to-checkout', 'checkout')->name("index.checkout");
 });
 
 Route::controller(UserController::class)->group(function(){
