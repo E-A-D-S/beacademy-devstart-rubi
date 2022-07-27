@@ -72,6 +72,5 @@ Route::controller(CategoryController::class)->group(function(){
   Route::post('/categoria/adicionado', 'store')->name("categories.store")->middleware('auth', 'admin');
   Route::get('/categoria/{id}/editar', 'edit')->name("categories.edit")->middleware('auth', 'admin');
   Route::put('/categoria/{id}', 'update')->name("categories.update")->middleware('auth', 'admin');
-  Route::delete('/categoria/{id}', 'destroy')->name("categories.destroy")->middleware('auth', 'admin');
   Route::get('/categoria', "show")->name("categories.show")->middleware('auth', 'admin');
 });
