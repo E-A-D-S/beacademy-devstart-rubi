@@ -49,7 +49,7 @@ class IndexController extends Controller
             $cart = [
                 $id => [
                     "name" => $product->name,
-                    "quantity" => $product->quantity,
+                    "quantity" => 1,
                     "sale_price" => $product->sale_price,
                     "image" => $product->image,
                 ]
@@ -89,7 +89,7 @@ class IndexController extends Controller
             $cart = [
                 $id => [
                     "name" => $product->name,
-                    "quantity" => $product->quantity,
+                    "quantity" => 1,
                     "sale_price" => $product->sale_price,
                     "image" => $product->image,
                 ]
