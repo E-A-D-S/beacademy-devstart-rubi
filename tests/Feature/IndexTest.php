@@ -25,5 +25,10 @@ class IndexTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
     }
-    
+    public function test_if_function_add_to_cart_redirect_to_home_works()
+    {
+        $response = $this->get('/add-to-cart/5');
+        $response->assertRedirect('/');
+    }
+
 }
