@@ -8,11 +8,23 @@ use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
+    public function test_if_cart_works_works_when_products_added()
+    {
+        $response = $this->get('/add-to-cart/5');
+        $response = $this->get('/cart');
+        $response->assertStatus(200);
+    }
     public function test_if_buydirect_redirects_to_cart()
     {
         $response = $this->get('/buy-direct/1');
         $response->assertRedirect('/cart');
     }
+    public function test_if_function_add_to_cart_redirect_to_home_works()
+    {
+        $response = $this->get('/add-to-cart/5');
+        $response->assertRedirect('/');
+    }
+
     
     public function test_if_contact_page_load()
     {
@@ -25,10 +37,4 @@ class IndexTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
     }
-    public function test_if_function_add_to_cart_redirect_to_home_works()
-    {
-        $response = $this->get('/add-to-cart/5');
-        $response->assertRedirect('/');
-    }
-
 }
