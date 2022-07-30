@@ -13,4 +13,10 @@ class IndexTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
     }
+
+    public function test_if_contact_page_load()
+    {
+        $response = $this->get('/contato');
+        $response->assertStatus(200);
+    }
 }
