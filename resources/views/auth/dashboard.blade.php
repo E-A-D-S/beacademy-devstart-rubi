@@ -85,8 +85,7 @@
                     <div class="d-flex">
                         <div class="form-control-lg float-end">
                             <div>
-                            @if(Auth::User())
-                                @if(Auth::User()->userType == 1)
+                                @if(Auth::User() && Auth::User()->userType == 1)
                                     <a href="{{ route('products.create') }}" class="btn btn-outline-dark">
                                         <i class="fa-solid fa-circle-plus">&nbsp;</i>Novo produto
                                     </a>
@@ -94,7 +93,6 @@
                                         <i class="fa-regular fa-square-plus">&nbsp;</i>Categorias
                                     </a>
                                 @endif
-                            @endif
                                 <a href="{{ route('orders.index') }}" class="btn btn-outline-dark">
                                     <i class="fa fa-shopping-bag">&nbsp;</i>Pedidos
                                 </a>

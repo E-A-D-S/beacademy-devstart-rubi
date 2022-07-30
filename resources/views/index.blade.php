@@ -19,14 +19,13 @@
                     </div>
                 </form>
             </div>
-
             <div class="row justify-content-between">
                 @foreach($products as $product)
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mb-4" style="width: 18rem;">
                         <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="{{ "#JanelaModal".$product->id }}">
                             @if($product->image)
-                                <img src="{{ asset("storage/".$product->image) }}" class="card-img-top" alt="...">
-                            @else    
+                                <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="...">
+                            @else
                                 <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                             @endif
                         </button>
@@ -34,22 +33,20 @@
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">{{ Str::limit($product->description, '65') }}</p>
                             <div>
-                                <hr/>
                                 <?php
                                     $category_name = DB::table('categories')->select('name')->where('id','=', $product->category_id)->get();
                                 ?>
-                                    <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
+                                <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
+                                <hr/>
+
                                     <p>de: <s>R$ {{ ($product->sale_price) * 1.5 }}</s></p>
                                     <p>por: <strong><i>R$ {{ $product->sale_price }}</i></strong></p>
                                 <a href="{{ route('index.buyDirect', $product->id) }}" class="btn btn-outline-primary btn-sm">Comprar</a>
                                 <a href="{{ route('index.addCart', $product->id) }}" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-cart-plus">&nbsp;</i>Carrinho</a>
+                                @if(Auth::User() && Auth::User()->userType == 1)
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                                @endif
                             </div>
-                            @auth
-                            <div>
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                            </div>
-                            @endauth
-                            
                         </div>
                     </div>
                 @endforeach
@@ -58,7 +55,7 @@
     </div>
     <section>
         @foreach($products as $product)
-            <div class="modal fade" id="{{ "JanelaModal".$product->id }}" tabindex="-1" role="dialog" aria-labelledby="{{ "#JanelaModal".$product->id }}" aria-hidden="true">
+            <div class="modal fade" id="{{ 'JanelaModal'.$product->id }}" tabindex="-1" role="dialog" aria-labelledby="{{ "#JanelaModal".$product->id }}" aria-hidden="true">
                 <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -69,7 +66,7 @@
                     </div>
                     <div class="modal-body">
                         @if($product->image)
-                            <img class="card-img-top md" src="{{ asset("storage/".$product->image) }}" alt="Card image cap">
+                            <img class="card-img-top md" src="{{ asset('storage/'.$product->image) }}" alt="Card image cap">
                         @else    
                             <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif
