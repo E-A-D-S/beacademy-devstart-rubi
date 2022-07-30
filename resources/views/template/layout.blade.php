@@ -40,25 +40,27 @@
                 <li class="nav-item p-2"><a href="{{ route('index.index') }}" class="btn btn-outline-dark"><i class="fa fa-store">&nbsp;</i>Produtos</a></li>
                 <li class="nav-item p-2"><a href="{{ route('users.login') }}" class="btn btn-outline-dark"><i class="fa fa-user">&nbsp;</i>Conta</a></li>
                 <li class="nav-item p-2"><a href="{{ route('index.contact') }}" class="btn btn-outline-dark"><i class="fa fa-phone">&nbsp;</i>Contato</a></li>
-                <li class="nav-item p-2">
-                    @if(session('cart'))
+                @if(session('cart'))
+                    <li class="nav-item p-2">
                         <a href="{{ route('index.cart') }}" class=" btn btn-outline-dark">
                             <i class="fa fa-shopping-cart">&nbsp;</i>
-                            Carrinho
+                                Carrinho
                             <span class="badge rounded-pill bg-danger">{{ count(session('cart')) }}</span>
                         </a>
-                    @else
-                </li>
-                <li class="nav-item p-2">
-                    <a href="" role="button" class="btn btn-outline-dark">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        Carrinho vazio
-                    </a> 
-                </li>  
-                    @endif
-                
-                @if(Auth::User())
-                    <li class="nav-item p-2"><a href="{{ route('account.logout') }}" class="btn btn-outline-dark"><i class="fa-solid fa-door-open">&nbsp;</i>Logout</a></li>
+                    </li>
+                @else
+                    <li class="nav-item p-2">
+                        <a href="" role="button" class="btn btn-outline-dark">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            Carrinho vazio
+                        </a> 
+                    </li>  
+                @endif
+                @if(Auth::User() && Auth::User()->userType == 1)
+                    <li class="nav-item p-2">
+                        <a href="{{ route('account.logout') }}" class="btn btn-outline-dark">
+                            <i class="fa-solid fa-door-open">&nbsp;</i>Logout</a>
+                    </li>
                 @endif
             </ul>
         </nav>
