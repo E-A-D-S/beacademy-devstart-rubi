@@ -25,6 +25,11 @@ class IndexTest extends TestCase
         $response->assertRedirect('/');
     }
 
+    public function test_if_redirect_to_login_without_user_be_authenticated()
+    {
+        $response = $this->get('/proceed-to-checkout');
+        $response->assertRedirect('/user/entrar');
+    }
     
     public function test_if_contact_page_load()
     {

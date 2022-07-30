@@ -144,7 +144,7 @@ class IndexController extends Controller
         if(Auth::check()) {
             return view('checkout');
         } else {
-            return view('users.login');
+            return redirect()->route('users.login');
         }
     }
 }
