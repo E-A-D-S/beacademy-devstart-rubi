@@ -2,7 +2,8 @@
 @section('title', "Finalizar Compra: ". Auth::user()->name)
 @section("content")
 <main class="container w-70 mt-5 mb-5">
-<table id="cart" class="table table-hover table-condensed mt-2 mb-5">
+<h2>Revisão de pedido</h2>
+<table id="cart" class="table table-hover table-condensed mt-4 mb-5">
   <thead>
   <tr>
       <th colspan="2" style="width:60%">Produto</th>
@@ -46,11 +47,13 @@
   </tbody>
   <tfoot class="p-4">
   <tr>
-    <td data-th="hidden-xs"></td>
+    <td data-th="hidden-xs">
+      <a href="{{ route('index.index')}}" class="btn btn-primary"><i class="fa fa fa-angle-left"></i> Continuar comprando</a>
+    </td>
     <td data-th="hidden-xs"></td>
       <td colspan="2" class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
       <td>
-        <a href="{{ route('orders.checkout')}}" class="btn btn-primary">Ir para checkout <i class="fa fa-angle-right"></i></a>
+        <a href="{{ route('orders.checkout')}}" class="btn btn-primary">Ir para checkout <i class="fa fa fa-angle-right"></i></a>
       </td>
   </tr>
   </tfoot>
