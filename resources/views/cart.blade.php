@@ -29,7 +29,7 @@
                     </div>
                       @else
                         <div class="col-sm-3 hidden-xs">
-                          <img width="100" height="100" class="img-responsive" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
+                          <img width="100" height="100" class="img-responsive" src="{{ asset('assets/images/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         </div>
                       @endif
                     <div class="col-sm-9">
@@ -62,7 +62,7 @@
         <td class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
         <td>
         @if(session('cart'))
-          <a href="{{ route('index.checkout') }}" class="btn btn-primary"> Ir para o checkout <i class="fa fa-angle-right"></i></a>
+          <a href="{{ route('index.confirm') }}" class="btn btn-primary">Confirmar Compra <i class="fa fa-angle-right"></i></a>
         @endif
         </td>
     </tr>

@@ -1,59 +1,52 @@
-@extends("template.layout")
-@section('title', "Finalizar Compra: ". Auth::user()->name)
-@section("content")
-<main class="container w-70 mt-5">
-<table id="cart" class="table table-hover table-condensed mt-2 mb-5">
-  <thead>
-  <tr>
-      <th colspan="2" style="width:60%">Produto</th>
-      <th style="width:20%">Preço</th>
-      <th style="width:5%">Quantidade</th>
-      <th style="width:15%" class="text-center">Subtotal</th>
-  </tr>
-  </thead>
-  <tbody>
+@extends('template.layout')
+@section('title', 'Checkout dados para pagamento')
 
-  <?php $total = 0 ?>
-
-  @if(session('cart'))
-      @foreach(session('cart') as $id => $details)
-          <?php $total += $details['sale_price'] * $details['quantity'] ?>
-          <tr>
-              <td colspan="2" data-th="Product">
-                  <div class="row">
-                    @if( $details['image'])
-                      <div class="col-sm-3 hidden-xs">
-                        <img src="{{ $details['image'] }}" width="100" height="100" class="img-responsive"/>
-                      </div>
-                        @else 
-                          <div class="col-sm-3 hidden-xs">
-                            <img width="100" height="100" class="img-responsive" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
-                          </div>
-                        @endif
-                      <div class="col-sm-9">
-                          <h4 class="nomargin">{{ $details['name'] }}</h4>
-                      </div>
-                  </div>
-              </td>
-              <td data-th="Price">${{ $details['sale_price'] }}</td>
-              <td data-th="Quantity">
-                  <input type="number" disabled value="{{ $details['quantity'] }}" class="form-control quantity" />
-              </td>
-              <td data-th="Subtotal" class="text-center">${{ $details['sale_price'] * $details['quantity'] }}</td>
-          </tr>
-      @endforeach
-  @endif
-  </tbody>
-  <tfoot>
-  <tr>
-      <td class="hidden-xs"></td>
-      <td class="hidden-xs"></td>
-      <td colspan="2" class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
-      <td>
-        <a href="#" class="btn btn-primary">Finalizar Compra <i class="fa fa-angle-right"></i></a>
-      </td>
-  </tr>
-  </tfoot>
-</table>
+@section('content')
+<main class="container w-50 mt-5">
+    <div class="modal-content" style="background-color: #efefef;">
+        <div class="modal-body text-dark">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="" class="form-control-lg mb-3">
+                        <h1 class="mt-3 mb-3">Confirmar pagamento</h1>
+                        <div class="form-group mb-3">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Nome Completo">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="cpf">CPF</label>
+                            <input type="number" class="form-control" id="cpf" min="1" placeholder="CPF">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email"></input>
+                        </div>
+                        <button type="submit" class="btn btn-success">Finalizar Pagamento</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-control-lg mb-3">
+                        <div class="text-center">
+                            <span>
+                                <i class="fa-solid fa-lock"></i>
+                                Detalhes de pagamento armazenados em texto simples.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-2 mb-5">
+        <div class="text-center">
+            <img src="{{ asset('assets/images/flag-cards.png') }}" alt="Bandeiras de pagamentos"/>
+            <img src="{{ asset('assets/images/logo-paylivre.svg') }}" alt="Paylivre payments"/>
+        </div>
+        <div class="text-center">
+            <img src="{{ asset('assets/images/selo-pagamento.png') }}" width="780" alt="Selo de segurança"/>
+        </div>
+    </div>
 </main>
 @endsection

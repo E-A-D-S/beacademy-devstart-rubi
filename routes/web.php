@@ -19,7 +19,7 @@ Route::controller(IndexController::class)->group(function(){
     Route::get('/add-to-cart/{id}', 'addCart')->name("index.addCart");
     Route::put('/update-cart', 'update')->name("index.updateCart");
     Route::delete('/remove-from-cart', 'delete')->name("index.remove");
-    Route::get('/proceed-to-checkout', 'checkout')->name("index.checkout");
+    Route::get('/order/confirm', 'confirmm')->name("index.confirm");
 });
 
 Route::controller(UserController::class)->group(function(){
@@ -58,13 +58,14 @@ Route::controller(ProductController::class)->group(function() {
 });
 
 Route::controller(OrderController::class)->group(function(){
+  Route::get('/proceed-to-checkout', "checkout")->name("orders.checkout")->middleware('auth');
     Route::get('/order/index', "index")->name("orders.index")->middleware('auth');
-    Route::get('/order/register', "create")->name("orders.create");
-    Route::post('/order/save', "store")->name("orders.store");
-    Route::get('/order/{id}', 'show')->name('orders.show');
-    Route::get('/order/{id}/edit', "edit")->name("orders.edit");
-    Route::put('/order/{id}', "update")->name("orders.update");
-    Route::delete('/order/{id}', "destroy")->name("orders.destroy");
+    Route::get('/order/register', "create")->name("orders.create")->middleware('auth');
+    Route::post('/order/save', "store")->name("orders.store")->middleware('auth');
+    Route::get('/order/{id}', 'show')->name('orders.show')->middleware('auth');
+    Route::get('/order/{id}/edit', "edit")->name("orders.edit")->middleware('auth');
+    Route::put('/order/{id}', "update")->name("orders.update")->middleware('auth');
+    Route::delete('/order/{id}', "destroy")->name("orders.destroy")->middleware('auth');
 });
 
 Route::controller(CategoryController::class)->group(function(){

@@ -143,10 +143,10 @@ class IndexController extends Controller
         }
     }
 
-    public function checkout()
-    {   
+    public function confirmm()
+    {
         if(Auth::check()) {
-            return view('checkout');
+            return view('confirm');
         } else {
             return redirect()->route('users.login');
         }
