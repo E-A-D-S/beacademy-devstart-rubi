@@ -22,7 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'cpf',
         'userType',
         'birthday',
         'created_at',
@@ -70,7 +69,6 @@ class User extends Authenticatable
         $user->email    = $data->email;
         $user->password = password_hash($data->password, PASSWORD_ARGON2I);
         $user->birthday = $data->birthday;
-        $user->cpf      = $data->cpf;
         $user->save();
 
         return $user->id;
