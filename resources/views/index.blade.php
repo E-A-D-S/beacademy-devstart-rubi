@@ -6,7 +6,7 @@
         @if(session('success'))
             <div class= "col-sm-4 text-center session">
                 <p class="alert alert-success mt-3 mb-3 btn-block" style='padding: .375rem .75rem;'>
-                {{ session('success') }}
+                    {{ session('success') }}
                 </p>
             </div>
         @endif
@@ -22,7 +22,7 @@
             <div class="row justify-content-between">
                 @foreach($products as $product)
                     <div class="card mb-4" style="width: 18rem;">
-                        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="{{ "#JanelaModal".$product->id }}">
+                        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="{{ '#JanelaModal'.$product->id }}">
                             @if($product->image)
                                 <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="...">
                             @else
@@ -38,7 +38,6 @@
                                 ?>
                                 <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                                 <hr/>
-
                                     <p>de: <s>R$ {{ ($product->sale_price) * 1.5 }}</s></p>
                                     <p>por: <strong><i>R$ {{ $product->sale_price }}</i></strong></p>
                                 <a href="{{ route('index.buyDirect', $product->id) }}" class="btn btn-outline-primary btn-sm">Comprar</a>
@@ -55,7 +54,7 @@
     </div>
     <section>
         @foreach($products as $product)
-            <div class="modal fade" id="{{ 'JanelaModal'.$product->id }}" tabindex="-1" role="dialog" aria-labelledby="{{ "#JanelaModal".$product->id }}" aria-hidden="true">
+            <div class="modal fade" id="{{ 'JanelaModal'.$product->id }}" tabindex="-1" role="dialog" aria-labelledby="{{ '#JanelaModal'.$product->id }}" aria-hidden="true">
                 <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -67,7 +66,7 @@
                     <div class="modal-body">
                         @if($product->image)
                             <img class="card-img-top md" src="{{ asset('storage/'.$product->image) }}" alt="Card image cap">
-                        @else    
+                        @else
                             <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif
                         <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>

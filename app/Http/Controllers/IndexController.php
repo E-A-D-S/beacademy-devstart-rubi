@@ -50,6 +50,7 @@ class IndexController extends Controller
                 $id => [
                     "name" => $product->name,
                     "quantity" => 1,
+                    "maxQuantity" => $product->quantity,
                     "sale_price" => $product->sale_price,
                     "image" => $product->image,
                 ]
@@ -68,6 +69,7 @@ class IndexController extends Controller
         $cart[$id] = [
             "name" => $product->name,
             "quantity" => 1,
+            "maxQuantity" => $product->quantity,
             "sale_price" => $product->sale_price,
             "image" => $product->image,
         ];
@@ -90,6 +92,7 @@ class IndexController extends Controller
                 $id => [
                     "name" => $product->name,
                     "quantity" => 1,
+                    "maxQuantity" => $product->quantity,
                     "sale_price" => $product->sale_price,
                     "image" => $product->image,
                 ]
@@ -108,6 +111,7 @@ class IndexController extends Controller
         $cart[$id] = [
             "name" => $product->name,
             "quantity" => 1,
+            "maxQuantity" => $product->quantity,
             "sale_price" => $product->sale_price,
             "image" => $product->image,
         ];
