@@ -12,6 +12,7 @@ class Address extends Model
     protected $fillable = [
         'postal_code',
         'address',
+        'number',
         'district',
         'city',
         'country',
@@ -30,6 +31,7 @@ class Address extends Model
     {
         $address    = new Address;
         $address->address   = $data->address;
+        $address->number = $data->number;
         $address->district  = $data->district;
         $address->postal_code  = $data->postal_code;
         $address->city      = $data->city;

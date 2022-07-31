@@ -21,10 +21,11 @@ class AddressFactory extends Factory
             'postal_code' => $this->faker->postcode(),
             'district' => $this->faker->city(),
             'address' => $this->faker->address(),
+            'number' => $this->faker->numerify('###'),
             'city' => $this->faker->city(),
             'country' => $this->faker->country(),
             'state' => $this->faker->state(),
-            'user_id' => User::All()->random()->id, 
+            'user_id' => User::All()->random()->id,
             'created_at' => now(),
             'updated_at' => now()
         ];

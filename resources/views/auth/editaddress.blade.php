@@ -20,9 +20,14 @@
                     @method('PUT')
                     @csrf
                         <h1 class="mt-3 mb-3">Editar endereço</h1>
-                        <div class="form-group mb-3">
-                            <label for="address">Endereço</label>
-                            <input type="text" value="{{ $address->address }}" name="address" class="form-control" id="address">
+                        <div class="row">
+                                    <div class="col-md-8">
+                                    <label for="district">Endereço</label>
+                                        <input type="text" value="{{ $address->address }}" name="address" class="form-control form-control" id="address">
+                                    </div>
+                                    <div class="col-md-3">
+                                    <label for="district">Número</label>
+                                        <input type="number" value="{{ $address->number }}" name="number" class="form-control form-control" id="number">
                         </div>
                         <div class="form-group mb-3">
                             <label for="description">Bairro</label>

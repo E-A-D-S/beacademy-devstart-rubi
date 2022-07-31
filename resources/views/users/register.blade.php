@@ -50,9 +50,14 @@
                             <label for="phone" class="form-label">Telefone</label>
                             <input type="phone" class="form-control" id="phone" name="phone">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="address" class="form-label">Endereço</label>
-                            <input type="text" class="form-control" id="address" name="address">
+                        <div class="row">
+                                    <div class="col-md-8">
+                                    <label for="district">Endereço</label>
+                                        <input type="text" name="address" class="form-control form-control" id="address">
+                                    </div>
+                                    <div class="col-md-3">
+                                    <label for="district">Número</label>
+                                        <input type="number" name="number" class="form-control form-control" id="number">
                         </div>
                         <div class="form-group mb-3">
                             <label for="district">Bairro</label>
@@ -71,16 +76,14 @@
                             <label for="state" class="form-label">Estado</label>
                             <input type="text" class="form-control" id="state" name="state">
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="country" class="form-label">País</label>
+                            <input type="text" class="form-control" id="country" name="country">
+                        </div>
 
                         <div class="form-group mb-3">
                             <label for="birthday" class="form-label">Data Nascimento</label>
                             <input type="date" class="form-control" id="birthday" name="birthday">
-                        </div>
-
-
-                        <div class="form-group mb-3">
-                            <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" maxlength="11">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
