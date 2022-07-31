@@ -54,9 +54,9 @@
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             Carrinho vazio
                         </a> 
-                    </li>  
+                    </li>
                 @endif
-                @if(Auth::User() && Auth::User()->userType == 1)
+                @if(Auth::User())
                     <li class="nav-item p-2">
                         <a href="{{ route('account.logout') }}" class="btn btn-outline-dark">
                             <i class="fa-solid fa-door-open">&nbsp;</i>Logout</a>
