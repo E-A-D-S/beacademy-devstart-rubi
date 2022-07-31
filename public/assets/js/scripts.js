@@ -10,6 +10,14 @@ $(document).ready(function() {
     input.attr('type', input.attr("type") === "text" ? 'password' : 'text')
 
     icon.toggleClass('fa-eye-slash fa-eye')
-  })
+  });
+
+  $('input[name="transaction_type"]').change(function () {
+    if ($('input[name="transaction_type"]:checked').val() === "card") {
+        $('#payment-card').show();
+    } else {
+        $('#payment-card').hide();
+    }
+  });
 
 })

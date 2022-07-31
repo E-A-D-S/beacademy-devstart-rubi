@@ -1,7 +1,7 @@
 @extends("template.layout")
 @section('title', "Finalizar Compra: ". Auth::user()->name)
 @section("content")
-<main class="container w-70 mt-5">
+<main class="container w-70 mt-5 mb-5">
 <table id="cart" class="table table-hover table-condensed mt-2 mb-5">
   <thead>
   <tr>
@@ -44,10 +44,10 @@
       @endforeach
   @endif
   </tbody>
-  <tfoot>
+  <tfoot class="p-4">
   <tr>
-      <td class="hidden-xs"></td>
-      <td class="hidden-xs"></td>
+    <td data-th="hidden-xs"></td>
+    <td data-th="hidden-xs"></td>
       <td colspan="2" class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
       <td>
         <a href="{{ route('orders.checkout')}}" class="btn btn-primary">Ir para checkout <i class="fa fa-angle-right"></i></a>
