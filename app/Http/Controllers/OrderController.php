@@ -59,4 +59,10 @@ class OrderController extends Controller
         Order::where('id', $id)->delete();
         return redirect()->route("orders.index");
     }
+
+    public function checkout()
+    {
+        return view('checkout');
+    }
+
 }

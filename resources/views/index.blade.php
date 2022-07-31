@@ -26,7 +26,7 @@
                             @if($product->image)
                                 <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="...">
                             @else
-                                <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
+                                <img width="50px" class="card-img-top md" src="{{ asset('assets/images/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                             @endif
                         </button>
                         <div class="card-body">
@@ -67,7 +67,7 @@
                         @if($product->image)
                             <img class="card-img-top md" src="{{ asset('storage/'.$product->image) }}" alt="Card image cap">
                         @else
-                            <img width="50px" class="card-img-top md" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
+                            <img width="50px" class="card-img-top md" src="{{ asset('assets/images/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif
                         <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                         <ul class="list-group list-group-flush text-center mt-5">

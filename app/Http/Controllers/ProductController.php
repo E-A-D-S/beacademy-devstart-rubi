@@ -28,7 +28,7 @@ class ProductController extends Controller
         
         if($request->image){
             $file = $request['image'];
-            $path = $file->store('img/products', 'public');
+            $path = $file->store('images/products', 'public');
             $data['image'] = $path;
         }
         $this->product->create($data);
@@ -56,7 +56,7 @@ class ProductController extends Controller
         
         if($request->image){
             $file = $request['image'];
-            $path = $file->store('img/products', 'public');
+            $path = $file->store('images/products', 'public');
             $data['image'] = $path;
         }
         $this->product->find($id)->update($data);
