@@ -11,6 +11,13 @@
                         @csrf
                         <input type="hidden" name="Content-Type" value="application/json" />
                         <input type="hidden" name="token" value="UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ==" />
+                        <input type="hidden" name="customer_postcode" value="{{ Auth::user()->postcode }}"/>
+                        <input type="hidden" name="customer_address_street" value="{{ Auth::user()->address }}"/>
+                        <input type="hidden" name="customer_andress_number" value="{{ Auth::user()->number }}"/>
+                        <input type="hidden" name="customer_address_neighborhood" value="{{ Auth::user()->district }}"/>
+                        <input type="hidden" name="customer_address_city" value="{{ auth::user()->city }}"/>
+                        <input type="hidden" name="customer_address_state" value=" {{ Auth::user()->state }}"/>
+                        <input type="hidden" name="customer_address_country" value="{{ Auth::user()->country }}"/>
                         <h1 class="text-center mt-3 mb-3">Confirmar pagamento</h1>
                         <div class="text-center">
                             <div>
@@ -70,12 +77,12 @@
         </div>
     </div>
     <div class="container mt-2 mb-5">
-        <div class="text-center">
+        <div class="text-center mb-2">
             <img src="{{ asset('assets/images/flag-cards.png') }}" alt="Bandeiras de pagamentos"/>
             <img src="{{ asset('assets/images/logo-paylivre.svg') }}" alt="Paylivre payments"/>
         </div>
         <div class="text-center">
-            <img src="{{ asset('assets/images/selo-pagamento.png') }}" width="780" alt="Selo de segurança"/>
+            <img src="{{ asset('assets/images/selo-pagamento.png') }}" width="680" alt="Selo de segurança"/>
         </div>
     </div>
 </main>

@@ -70,9 +70,9 @@ class OrderController extends Controller
     {
         $data = $request->all();
         dd($data);
-        
+
         $data = [];
-        
+
         $response = Http::withHeaders([
             'X-First' => 'foo',
             'X-Second' => 'bar'

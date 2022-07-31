@@ -43,10 +43,6 @@
                             <label for="birthday" class="form-label">Data Nascimento</label>
                             <input type="date" value="{{ Auth::user()->birthday }}" class="form-control" id="birthday" name="birthday">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" value="{{ Auth::user()->cpf }}" class="form-control" id="cpf" name="cpf" maxlength="11">
-                        </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>
                 </div>
