@@ -24,36 +24,36 @@
                                 <h4>Metodo de pagamento</h4>
                             </div>
                             <div>
-                                <input type="radio" name="transaction_type" value="ticket" id="ticket"/>
+                                <input required type="radio" name="transaction_type" value="ticket" id="ticket"/>
                                 <label for="ticket">Boleto bancario</label>
-                                <input type="radio" name="transaction_type" value="card" id="card" checked/>
+                                <input required type="radio" name="transaction_type" value="card" id="card" checked/>
                                 <label for="card">Cartão de crédito</label>
                             </div>
                         </div>
                         <div class="form-group mb-3">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" name="customer_name" class="form-control" id="nome" placeholder="Nome Completo">
+                            <input required type="text" name="customer_name" class="form-control" id="nome" placeholder="Nome Completo">
                         </div>
                         <div class="form-group mb-3">
                             <label for="cpf">CPF</label>
-                            <input type="number" name="customer_document" class="form-control" id="cpf" min="1" placeholder="CPF">
+                            <input required type="number" name="customer_document" class="form-control" id="cpf" min="1" placeholder="CPF">
                         </div>
                         <div id="payment-card">
                             <div class="form-group mb-3">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <label for="card-name">Numero do cartão</label>
-                                        <input type="number" name="customer_card_number" class="form-control form-control" id="card-name" placeholder="3333444455556666">
+                                        <input required type="number" name="customer_card_number" class="form-control form-control" id="card-name" placeholder="3333444455556666">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="cvv">CVV</label>
-                                        <input type="number" name="customer_card_cvv" class="form-control form-control" id="card-cvv" placeholder="123"/>
+                                        <input required type="number" name="customer_card_cvv" class="form-control form-control" id="card-cvv" placeholder="123"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="card_expiration">Validade</label>
-                                <input type="date" name="customer_card_expiration_date" class="form-control" id="card_expiration" min="1">
+                                <input required type="date" name="customer_card_expiration_date" class="form-control" id="card_expiration" min="1">
                             </div>
                             <div class="form-group mb-3">
                             </div>
