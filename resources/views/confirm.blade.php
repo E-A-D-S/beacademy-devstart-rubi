@@ -48,7 +48,7 @@
   <tfoot class="p-4">
   <tr>
     <td data-th="hidden-xs">
-      <a href="{{ route('orders.checkout')}}" class="btn btn-primary"><i class="fa fa fa-angle-left"></i> Continuar comprando</a>
+      <a href="{{ route('index.index')}}" class="btn btn-primary"><i class="fa fa fa-angle-left"></i> Continuar comprando</a>
     </td>
     <td data-th="hidden-xs"></td>
       <td colspan="2" class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
