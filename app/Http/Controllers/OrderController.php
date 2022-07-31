@@ -114,6 +114,13 @@ class OrderController extends Controller
             'token' => 'UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ=='
         ])->post('https://tracktools.vercel.app/api/checkout', $dataApi);
 
-        return $response;
+        $transaction = $response['transaction'];
+        $transaction['status'];
+
+        if ($transaction['status'] == 'paid') {
+            return view('orders.paid');
+        } else {
+            return view('orders.refused');
+        }
     }
 }
