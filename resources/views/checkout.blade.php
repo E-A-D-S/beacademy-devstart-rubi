@@ -1,14 +1,14 @@
 @extends("template.layout")
 @section('title', "Finalizar Compra: ". Auth::user()->name)
 @section("content")
-<table id="cart" class="table table-hover table-condensed">
+<main class="container w-70 mt-5">
+<table id="cart" class="table table-hover table-condensed mt-2 mb-5">
   <thead>
   <tr>
-      <th style="width:50%">Produto</th>
-      <th style="width:10%">Preço</th>
-      <th style="width:8%">Quantidade</th>
-      <th style="width:22%" class="text-center">Subtotal</th>
-      <th style="width:10%"></th>
+      <th colspan="2" style="width:60%">Produto</th>
+      <th style="width:20%">Preço</th>
+      <th style="width:5%">Quantidade</th>
+      <th style="width:15%" class="text-center">Subtotal</th>
   </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
       @foreach(session('cart') as $id => $details)
           <?php $total += $details['sale_price'] * $details['quantity'] ?>
           <tr>
-              <td data-th="Product">
+              <td colspan="2" data-th="Product">
                   <div class="row">
                     @if( $details['image'])
                       <div class="col-sm-3 hidden-xs">
@@ -28,7 +28,7 @@
                         @else 
                           <div class="col-sm-3 hidden-xs">
                             <img width="100" height="100" class="img-responsive" src="{{ asset('assets/img/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
-                          </div>   
+                          </div>
                         @endif
                       <div class="col-sm-9">
                           <h4 class="nomargin">{{ $details['name'] }}</h4>
@@ -43,15 +43,17 @@
           </tr>
       @endforeach
   @endif
-
   </tbody>
   <tfoot>
   <tr>
       <td class="hidden-xs"></td>
-      <td colspan="2" class="hidden-xs"></td>
-      <td class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
-      <td><a href="#" class="btn btn-primary">Finalizar Compra <i class="fa fa-angle-right"></a></td>
+      <td class="hidden-xs"></td>
+      <td colspan="2" class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
+      <td>
+        <a href="#" class="btn btn-primary">Finalizar Compra <i class="fa fa-angle-right"></i></a>
+      </td>
   </tr>
   </tfoot>
 </table>
+</main>
 @endsection
