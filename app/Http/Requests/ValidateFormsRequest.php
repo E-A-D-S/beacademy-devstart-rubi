@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules;
+
 
 class ValidateFormsRequest extends FormRequest
 {
@@ -16,7 +18,7 @@ class ValidateFormsRequest extends FormRequest
         return [
             'name' => 'required|string|max:50|min:3',
             'email' => 'required|email|unique:users,email,{$id},id',
-            'password' => 'required|min:6|max:12',
+            'password' => ['required', Rules\Password::defaults()],
             'image' => 'mimes:jpeg,png,jpg',
             // 'cpf' => '',
             // 'birthday' => '',

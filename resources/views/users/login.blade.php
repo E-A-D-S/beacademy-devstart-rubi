@@ -39,12 +39,12 @@
             </div>
             <div class="row mt-3 p-3 text-center">
                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                <div class="mt-3">
+                <!-- <div class="mt-3">
                     <input type="checkbox" name="remember" id="remember"/>
                     <label for="remember">Lembrar-me</label>
-                </div>
+                </div> -->
                 <div class="mt-2">
-                    <a href="{{ route('users.recovery') }}">Esqueci minha senha</a>
+                    <a href="{{ route('password.request') }}">Esqueci minha senha</a>
                 </div>
             </div>
             <div class="text-center mt-4 mb-1">

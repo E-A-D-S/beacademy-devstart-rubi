@@ -108,7 +108,7 @@ class OrderController extends Controller
             $dataApi["customer_address_state"] = Address::find(Auth::user())->state;
             $dataApi["customer_address_country"] = Address::find(Auth::user())->country;
         }
-   
+
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
             'token' => 'UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ=='
