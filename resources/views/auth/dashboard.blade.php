@@ -86,14 +86,14 @@
                         <div class="form-control-lg float-end">
                             <div>
                                 @if(Auth::User() && Auth::User()->userType == 1)
-                                    <a href="{{ route('products.create') }}" class="btn btn-outline-dark">
+                                    <a href="{{ route('products.create') }}" class="btn btn-outline-dark m-1">
                                         <i class="fa-solid fa-circle-plus">&nbsp;</i>Novo produto
                                     </a>
-                                    <a href="{{ route('categories.show') }}" class="btn btn-outline-dark">
+                                    <a href="{{ route('categories.show') }}" class="btn btn-outline-dark m-1">
                                         <i class="fa-regular fa-square-plus">&nbsp;</i>Categorias
                                     </a>
                                 @endif
-                                <a href="{{ route('orders.index') }}" class="btn btn-outline-dark">
+                                <a href="{{ route('orders.index') }}" class="btn btn-outline-dark m-1">
                                     <i class="fa fa-shopping-bag">&nbsp;</i>Pedidos
                                 </a>
                             </div>
