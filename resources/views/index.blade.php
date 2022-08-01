@@ -24,7 +24,7 @@
                     <div class="card mb-4" style="width: 18rem;">
                         <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="{{ '#JanelaModal'.$product->id }}">
                             @if($product->image)
-                                <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="...">
+                                <img src="{{ $product->image }}" class="card-img-top" alt="...">
                             @else
                                 <img width="50px" class="card-img-top md" src="{{ asset('assets/images/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                             @endif
@@ -65,7 +65,7 @@
                     </div>
                     <div class="modal-body">
                         @if($product->image)
-                            <img class="card-img-top md" src="{{ asset('storage/'.$product->image) }}" alt="Card image cap">
+                            <img class="card-img-top md" src="{{ $product->image }}" alt="Card image cap">
                         @else
                             <img width="50px" class="card-img-top md" src="{{ asset('assets/images/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif

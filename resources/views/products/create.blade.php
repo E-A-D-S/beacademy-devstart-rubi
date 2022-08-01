@@ -5,7 +5,7 @@
 <main class="container w-50 mt-5">
     <div class="form-control-lg" style="background-color: #efefef;">
         <div class="form-control-lg">
-        @if($errors->any()) 
+        @if($errors->any())
               <div class="alert alert-danger" role="alert">
                 @foreach($errors->all() as $error)
                     {{ $error }}<br>
@@ -45,7 +45,7 @@
             </div>
             <div class="mb-3">
               <label for="image" class="form-label"> Selecione uma Imagem</label>
-              <input type="file" class="form-control form control-md" id="image" name="image"/>
+              <input type="text" class="form-control form control-md" id="image" name="image"/>
             </div>
             <button type="submit" class="btn btn-primary">enviar</button>
           </form>
