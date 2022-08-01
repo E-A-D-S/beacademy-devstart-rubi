@@ -28,7 +28,7 @@ class ProductController extends Controller
         
         if($request->image){
             $file = $request['image'];
-            $path = $file->store('/assets/images/products/wine/', 'public');
+            $path = $file->store('assets/images/products/wine/', 'public');
             $data['image'] = $path;
         }
         $this->product->create($data);
