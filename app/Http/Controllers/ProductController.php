@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $this->product = $product;
     }
-   
+
     public function create()
     {
         $categories = Category::all();
@@ -25,14 +25,9 @@ class ProductController extends Controller
     {
         $data = $request->all();
         $data['category_id'] = $request->categories;
-        
-        if($request->image){
-            $file = $request['image'];
-            $path = $file->store('assets/images/products/wine/', 'public');
-            $data['image'] = $path;
-        }
+
         $this->product->create($data);
-        
+
         return redirect()->route('products.create')->with('success', 'Produto cadastrado com sucesso!!!');
     }
 
@@ -53,12 +48,7 @@ class ProductController extends Controller
     {
         $data = $request->all();
         $data['category_id'] = $request->categories;
-        
-        if($request->image){
-            $file = $request['image'];
-            $path = $file->store('assets/images/products/wine/', 'public');
-            $data['image'] = $path;
-        }
+
         $this->product->find($id)->update($data);
         return redirect()->route('products.edit', $id)->with('success', 'Produto atualizado com sucesso!!!');
     }
