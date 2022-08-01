@@ -69,6 +69,9 @@
                         @else
                             <img width="50px" class="card-img-top md" src="{{ asset('assets/images/products/wine/vinho-sem-rotulo.png') }}" alt="Card image cap">
                         @endif
+                        <?php
+                            $category_name = DB::table('categories')->select('name')->where('id','=', $product->category_id)->get();
+                        ?>
                         <span class="badge rounded-pill bg-primary">{{$category_name->first()->name}}</span>
                         <ul class="list-group list-group-flush text-center mt-5">
                             <li class="list-group-item">{{ $product->description }}</li>
