@@ -73,40 +73,39 @@ class OrderController extends Controller
     }
 
     public function payments(Request $request)
-    {        
+    {
         $total = 0;
         $cart = session()->get('cart');
-        
+
         foreach($cart as $c) {
             $total += $c['sale_price'];
         }
-        
+
         $data = $request->all();
-        
+
         $dataApi = [
             "transaction_type" => $data['transaction_type'],
             "transaction_amount" => $total,
             "transaction_installments" => $data['customer_name'],
             "customer_name" => $data['customer_name'],
             "customer_document" => $data['customer_document'],
-            
+
         ];
-        
+
         if($data['transaction_type'] == 'card') {
             $dataApi["customer_card_number"] = $data['customer_card_number'];
             $dataApi["customer_card_expiration_date"] = $data['customer_card_expiration_date'];
             $dataApi["customer_card_cvv"] = $data['customer_card_cvv'];
         }
-        
 
         if($data['transaction_type'] == 'ticket') {
-            $dataApi["customer_postcode"] = Address::find(Auth::user())->postal_code;
-            $dataApi["customer_address_street"] = Address::find(Auth::user())->address;
-            $dataApi["customer_andress_number"] = Address::find(Auth::user())->number;
-            $dataApi["customer_address_neighborhood"] = Address::find(Auth::user())->district;
-            $dataApi["customer_address_city"] = Address::find(Auth::user())->city;
-            $dataApi["customer_address_state"] = Address::find(Auth::user())->state;
-            $dataApi["customer_address_country"] = Address::find(Auth::user())->country;
+            $dataApi["customer_postcode"] = Address::find(Auth::user())->first()->postal_code;
+            $dataApi["customer_address_street"] = Address::find(Auth::user())->first()->address;
+            $dataApi["customer_andress_number"] = Address::find(Auth::user())->first()->number;
+            $dataApi["customer_address_neighborhood"] = Address::find(Auth::user())->first()->district;
+            $dataApi["customer_address_city"] = Address::find(Auth::user())->first()->city;
+            $dataApi["customer_address_state"] = Address::find(Auth::user())->first()->state;
+            $dataApi["customer_address_country"] = Address::find(Auth::user())->first()->country;
         }
 
         $response = Http::withHeaders([
@@ -122,5 +121,9 @@ class OrderController extends Controller
         } else {
             return view('orders.refused');
         }
+    }
+    public function show()
+    {
+        return view('orders.details');
     }
 }

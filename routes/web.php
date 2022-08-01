@@ -67,6 +67,7 @@ Route::controller(OrderController::class)->group(function(){
     Route::get('/order/{id}', 'show')->name('orders.show')->middleware('auth');
     Route::get('/order/{id}/edit', "edit")->name("orders.edit")->middleware('auth');
     Route::get('/order/pagamento-aceito', "edit")->name("orders.paid");
+    Route::post('/order/detalhes-pedido', 'showdetails')->name('orders.details')->middleware('auth');
     Route::get('/order/pagamento-recusado', "edit")->name("orders.refused");
     Route::put('/order/{id}', "update")->name("orders.update")->middleware('auth');
     Route::delete('/order/{id}', "destroy")->name("orders.destroy")->middleware('auth');
