@@ -56,7 +56,7 @@ class ProductController extends Controller
         
         if($request->image){
             $file = $request['image'];
-            $path = $file->store('images/products', 'public');
+            $path = $file->store('assets/images/products/wine/', 'public');
             $data['image'] = $path;
         }
         $this->product->find($id)->update($data);
