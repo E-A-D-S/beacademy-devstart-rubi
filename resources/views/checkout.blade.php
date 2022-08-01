@@ -18,7 +18,9 @@
                         <input type="hidden" name="customer_address_city" value="{{ auth::user()->city }}"/>
                         <input type="hidden" name="customer_address_state" value=" {{ Auth::user()->state }}"/>
                         <input type="hidden" name="customer_address_country" value="{{ Auth::user()->country }}"/>
+
                         <h1 class="text-center mt-3 mb-3">Confirmar pagamento</h1>
+
                         <div class="text-center">
                             <div>
                                 <h4>Metodo de pagamento</h4>
@@ -32,11 +34,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="nome">Nome Completo</label>
-                            <input required type="text" name="customer_name" class="form-control" id="nome" placeholder="Nome Completo">
+                            <input required type="text" name="customer_name" class="form-control" id="nome" placeholder="Nome Completo" value="{{ Auth::user()->name }}">
                         </div>
                         <div class="form-group mb-3">
                             <label for="cpf">CPF</label>
-                            <input required type="number" name="customer_document" class="form-control" id="cpf" min="1" placeholder="CPF">
+                            <input required type="number" name="customer_document" class="form-control" id="cpf" min="1" placeholder="CPF" value="{{ Auth::user()->cpf }}">
                         </div>
                         <div id="payment-card">
                             <div class="form-group mb-3">
