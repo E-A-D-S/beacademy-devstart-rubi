@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </td>
-            <td data-th="Price">${{ $details['sale_price'] }}</td>
+            <td data-th="Price">R$ {{ $details['sale_price'] }}</td>
             <td data-th="Quantity">
               <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" min="1" max="{{ $details['maxQuantity'] }}"/>
             </td>
@@ -46,7 +46,7 @@
                 {{ $details['maxQuantity'] }}
               </span>
             </td>
-            <td data-th="Subtotal" class="text-center">${{ $details['sale_price'] * $details['quantity'] }}</td>
+            <td data-th="Subtotal" class="text-center">R$ {{ $details['sale_price'] * $details['quantity'] }}</td>
             <td class="actions" data-th="">
               <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
               <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remover</button>
@@ -59,7 +59,7 @@
     <tr>
         <td><a href="{{ route('index.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuar Comprando</a></td>
         <td colspan="3" class="hidden-xs"></td>
-        <td class="hidden-xs text-center"><strong>Total R${{ $total }}</strong></td>
+        <td class="hidden-xs text-center"><strong>Total R$ {{ $total }}</strong></td>
         <td>
         @if(session('cart'))
           <a href="{{ route('index.confirm') }}" class="btn btn-primary">Confirmar Compra <i class="fa fa-angle-right"></i></a>
