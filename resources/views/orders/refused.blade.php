@@ -7,7 +7,15 @@
     <div class="modal-body text-dark">
       <div class="row">
         <div class="col-md-12 p-5">
-          <h1 class="text-center mb-4">Pagamento recusado</h1>
+          <h1 class="text-center mb-4">
+            Pagamento
+            @if($response['body']['transaction_type'] == 'ticket')
+              boleto
+            @else
+              cartão de crédito
+            @endif
+            recusado
+            </h1>
           <div class="text-center">
               <div>
                   <h4 class=" mb-3">Confira com a sua operadora de cartão</h4>
