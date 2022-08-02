@@ -117,9 +117,9 @@ class OrderController extends Controller
         $transaction['status'];
 
         if ($transaction['status'] == 'paid') {
-            return view('orders.paid', compact('response'));
+            return view('orders.paid');
         } else {
-            return view('orders.refused', compact('response'));
+            return view('orders.refused');
         }
     }
     public function show()
