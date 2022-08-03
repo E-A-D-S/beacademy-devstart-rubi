@@ -2,7 +2,7 @@
 @section('title', 'Checkout dados para pagamento')
 
 @section('content')
-{{-- {{ dd($response['body']['transaction_type']) }} --}}
+{{-- dd($response['body']) --}}
 
 <main class="container w-50 mt-5 mb-5">
   <div class="modal-content" style="background-color: #efefef;">
@@ -21,8 +21,14 @@
           <div class="text-center">
               <div>
                   <h4 class=" mb-3">Clique abaixo e confira todos os seus pedidos</h4>
-              </div>
-              <a href="{{ route('orders.details') }}" class="btn btn-success">Conferir Pedidos</a>
+                </div>
+                <a href="{{ route('orders.details') }}" class="btn btn-success">Conferir Pedidos</a>
+                @if($response['body']['transaction_type'] == 'ticket')
+                <div>
+                  <h4 class="mb-3 mt-3">Clique abaixo para baixar o seu boleto</h4>
+                </div>
+                <a href="{{ route('orders.boleto') }}" class="btn btn-danger">Imprimir boleto</a>
+                @endif
           </div>
         </div>
       </div>
