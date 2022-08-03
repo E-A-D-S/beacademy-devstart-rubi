@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="cvv">CVV</label>
-                                        <input type="number" name="customer_card_cvv" class="form-control form-control" id="card-cvv" placeholder="123"/>
+                                        <input type="text" pattern="\d*" maxlength="4" name="customer_card_cvv" class="form-control form-control" id="card-cvv" placeholder="123">
                                     </div>
                                 </div>
                             </div>
