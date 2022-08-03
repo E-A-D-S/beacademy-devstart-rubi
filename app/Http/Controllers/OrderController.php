@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Models\Address;
+use Dompdf\Dompdf;
 
 class OrderController extends Controller
 {
@@ -89,7 +90,6 @@ class OrderController extends Controller
             "transaction_installments" => $data['customer_name'],
             "customer_name" => $data['customer_name'],
             "customer_document" => $data['customer_document'],
-
         ];
 
         if($data['transaction_type'] == 'card') {
@@ -122,6 +122,26 @@ class OrderController extends Controller
             return view('orders.refused', compact('response'));
         }
     }
+
+    public function boleto(Request $request)
+    {
+        $data = [
+            'name' => Auth::user()->name,
+            'phone' => Auth::user()->phone,
+            'email' => Auth::user()->email,
+        ];
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml(view('orders.boleto', compact('request','data')));
+        $dompdf->setPaper('A4', 'portrait');
+        // $customPaper = array(0,0,360,360);
+        // $dompdf->set_paper($customPaper);
+        $dompdf->render();
+        $dompdf->stream();
+        
+        return redirect()->route('home.index')->with('donwload', 'Boleto gerado com sucesso!');
+    }
+
     public function show()
     {
         return view('orders.details');

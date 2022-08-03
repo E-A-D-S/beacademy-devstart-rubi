@@ -61,6 +61,7 @@ Route::controller(ProductController::class)->group(function() {
 Route::controller(OrderController::class)->group(function(){
     Route::get('/proceed-to-checkout', "checkout")->name("orders.checkout")->middleware('auth');
     Route::post('/proceed-to-checkout', "payments")->name("payments")->middleware('auth');
+    Route::get('/boleto', 'boleto')->name('orders.boleto');
     Route::get('/order/index', "index")->name("orders.index")->middleware('auth');
     Route::get('/order/register', "create")->name("orders.create")->middleware('auth');
     Route::post('/order/save', "store")->name("orders.store")->middleware('auth');
