@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <form action="{{ route('payments') }}" method="post" class="form-control-lg mb-3">
                         @csrf
-                        <input type="hidden" name="Content-Type" value="application/json" />
+                        {{-- <input type="hidden" name="Content-Type" value="application/json" />
                         <input type="hidden" name="token" value="UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ==" />
                         <input type="hidden" name="customer_postcode" value="{{ Auth::user()->postcode }}"/>
                         <input type="hidden" name="customer_address_street" value="{{ Auth::user()->address }}"/>
@@ -17,7 +17,7 @@
                         <input type="hidden" name="customer_address_neighborhood" value="{{ Auth::user()->district }}"/>
                         <input type="hidden" name="customer_address_city" value="{{ auth::user()->city }}"/>
                         <input type="hidden" name="customer_address_state" value=" {{ Auth::user()->state }}"/>
-                        <input type="hidden" name="customer_address_country" value="{{ Auth::user()->country }}"/>
+                        <input type="hidden" name="customer_address_country" value="{{ Auth::user()->country }}"/> --}}
 
                         <h1 class="text-center mt-3 mb-3">Confirmar pagamento</h1>
 
