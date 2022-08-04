@@ -83,7 +83,7 @@ class OrderController extends Controller
         }
 
         $data = $request->all();
-
+        
         $dataApi = [
             "transaction_type" => $data['transaction_type'],
             "transaction_amount" => $total,
@@ -99,13 +99,20 @@ class OrderController extends Controller
         }
 
         if($data['transaction_type'] == 'ticket') {
-            $dataApi["customer_postcode"] = Address::find(Auth::user())->first()->postal_code;
-            $dataApi["customer_address_street"] = Address::find(Auth::user())->first()->address;
-            $dataApi["customer_andress_number"] = Address::find(Auth::user())->first()->number;
-            $dataApi["customer_address_neighborhood"] = Address::find(Auth::user())->first()->district;
-            $dataApi["customer_address_city"] = Address::find(Auth::user())->first()->city;
-            $dataApi["customer_address_state"] = Address::find(Auth::user())->first()->state;
-            $dataApi["customer_address_country"] = Address::find(Auth::user())->first()->country;
+            $data = [
+                'name' => Auth::user()->name,
+                'cpf' => $request->customer_document
+            ];
+    
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml(view('orders.boleto', compact('request','data')));
+            $dompdf->setPaper('A4', 'portrait');
+            // $customPaper = array(0,0,360,360);
+            // $dompdf->set_paper($customPaper);
+            $dompdf->render();
+            $dompdf->stream();
+            
+            return redirect()->route('orders.boleto')->with('donwload', 'Boleto gerado com sucesso!');
         }
 
         $response = Http::withHeaders([
@@ -130,6 +137,9 @@ class OrderController extends Controller
             'phone' => Auth::user()->phone,
             'email' => Auth::user()->email,
         ];
+
+        dd($request->cpf);
+        dd($data);
 
         $dompdf = new Dompdf();
         $dompdf->loadHtml(view('orders.boleto', compact('request','data')));
