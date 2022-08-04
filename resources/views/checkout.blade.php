@@ -11,7 +11,7 @@
                         @csrf
                         <input type="hidden" name="Content-Type" value="application/json" />
                         <input type="hidden" name="token" value="UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ==" />
-                        <input type="hidden" name="customer_postcode" value="{{ Auth::user()->postcode }}"/>
+                        <input type="hidden" name="customer_postcode" value="{{ Auth::user()->postal_code }}"/>
                         <input type="hidden" name="customer_address_street" value="{{ Auth::user()->address }}"/>
                         <input type="hidden" name="customer_andress_number" value="{{ Auth::user()->number }}"/>
                         <input type="hidden" name="customer_address_neighborhood" value="{{ Auth::user()->district }}"/>
@@ -38,24 +38,22 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="cpf">CPF</label>
-                            <input type="number" name="customer_document" class="form-control" id="cpf" min="1" placeholder="CPF" value="{{ Auth::user()->cpf }}">
+                            <input type="text" name="customer_document" class="form-control" id="cpf" pattern="\d*" maxlength="11"  min="1" placeholder="CPF" value="{{ Auth::user()->cpf }}">
                         </div>
                         <div id="payment-card">
                             <div class="form-group mb-3">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <label for="card-name">Numero do cartão</label>
-                                        <input type="number" name="customer_card_number" class="form-control form-control" id="card-name" placeholder="3333444455556666">
-                                    </div>
+                                        <input type="text" name="customer_card_number" pattern="\d*" class="form-control form-control" id="card-name" maxlength="16" placeholder="3333444455556666">                                    </div>
                                     <div class="col-md-3">
                                         <label for="cvv">CVV</label>
-                                        <input type="text" pattern="\d*" maxlength="4" name="customer_card_cvv" class="form-control form-control" id="card-cvv" placeholder="123">
-                                    </div>
+                                        <input type="text" pattern="\d*" maxlength="4" name="customer_card_cvv" class="form-control form-control" id="card-cvv" placeholder="123">                                    </div>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="card_expiration">Validade</label>
-                                <input type="date" name="customer_card_expiration_date" class="form-control" id="card_expiration" min="1">
+                                <input type="month" name="customer_card_expiration_date" class="form-control" id="card_expiration" min="1">
                             </div>
                             <div class="form-group mb-3">
                             </div>

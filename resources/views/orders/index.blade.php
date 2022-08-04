@@ -1,13 +1,13 @@
 @extends("template.layout")
 @section('title', $viewData["title"])
 @section('content')
-@foreach($viewData["orders"] as $order)
-    <main class="container mt-5">
-        <div class="card mb-4">
-            <div class="card-header">
-                Pedido #{{ $order->getId() }}
-            </div>
-            <div class="card-body">
+<main class="container mt-5">
+    <div class="card mb-4">
+        @foreach($viewData["orders"] as $order)
+        <div class="card-header">
+            Pedido #{{ $order->getId() }}
+        </div>
+        <div class="card-body">
                 <b>Data:</b> {{ formatDateTime($order->getCreatedAt()) }}<br/>
                 <table class="table table-bordered table-striped text-center mt-3">
                     <thead>
@@ -27,9 +27,9 @@
                             <td>{{ $item->getQuantity() }}</td>
                         </tr>
                     </tbody>
-                    @endforeach
                 </table>
             </div>
+            @endforeach
         </div>
     </main>
 @endforeach
