@@ -101,18 +101,19 @@ class OrderController extends Controller
         if($data['transaction_type'] == 'ticket') {
             $data = [
                 'name' => Auth::user()->name,
-                'cpf' => $request->customer_document
+                'cpf' => $request->customer_document,
+                'total' => $total,
+                'cart' => $cart,
+                'address' => Address::find(Auth::user()->id)
             ];
     
             $dompdf = new Dompdf();
             $dompdf->loadHtml(view('orders.boleto', compact('request','data')));
             $dompdf->setPaper('A4', 'portrait');
-            // $customPaper = array(0,0,360,360);
-            // $dompdf->set_paper($customPaper);
             $dompdf->render();
             $dompdf->stream();
             
-            return redirect()->route('orders.boleto')->with('donwload', 'Boleto gerado com sucesso!');
+            return view('orders.boleto', compact('data', 'request'));
         }
 
         $response = Http::withHeaders([
@@ -128,28 +129,6 @@ class OrderController extends Controller
         } else {
             return view('orders.refused', compact('response'));
         }
-    }
-
-    public function boleto(Request $request)
-    {
-        $data = [
-            'name' => Auth::user()->name,
-            'phone' => Auth::user()->phone,
-            'email' => Auth::user()->email,
-        ];
-
-        dd($request->cpf);
-        dd($data);
-
-        $dompdf = new Dompdf();
-        $dompdf->loadHtml(view('orders.boleto', compact('request','data')));
-        $dompdf->setPaper('A4', 'portrait');
-        // $customPaper = array(0,0,360,360);
-        // $dompdf->set_paper($customPaper);
-        $dompdf->render();
-        $dompdf->stream();
-        
-        return redirect()->route('home.index')->with('donwload', 'Boleto gerado com sucesso!');
     }
 
     public function show()
