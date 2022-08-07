@@ -23,7 +23,6 @@ class OrderController extends Controller
         $viewData["title"] = "Meus Pedidos";
         $viewData["orders"] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();
         return view('orders.index')->with("viewData", $viewData);
-
     }
 
     public function create()
@@ -124,13 +123,26 @@ class OrderController extends Controller
         $transaction = $response['transaction'];
         $transaction['status'];
 
-        if ($transaction['status'] == 'paid') {
+        if ($transaction['status'] == 'paid') {            
+            foreach ($cart as $pedido) {
+                $order = new Order;
+                $order->name = $pedido['name'];
+                $order->quantity = $pedido['quantity'];
+                $order->sale_price = $pedido['sale_price'];
+                $order->image = 'null.png';
+                $order->cost_price = $pedido['cost_price'];
+                $order->category = $pedido['category_id'];
+                $order->user_id = Auth::user()->id;
+                $order->save();
+                session()->forget('cart');
+            }
+
             return view('orders.paid', compact('response'));
         } else {
             return view('orders.refused', compact('response'));
         }
     }
-
+    
     public function show()
     {
         return view('orders.details');

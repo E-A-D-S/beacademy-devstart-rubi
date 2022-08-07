@@ -53,6 +53,8 @@ class IndexController extends Controller
                     "maxQuantity" => $product->quantity,
                     "sale_price" => $product->sale_price,
                     "image" => $product->image,
+                    "cost_price" => $product->cost_price,
+                    "category_id" => $product->category_id
                 ]
             ];
             session()->put('cart', $cart);
@@ -72,6 +74,8 @@ class IndexController extends Controller
             "maxQuantity" => $product->quantity,
             "sale_price" => $product->sale_price,
             "image" => $product->image,
+            "cost_price" => $product->cost_price,
+            "category_id" => $product->category_id
         ];
         session()->put('cart', $cart);
         return redirect()->route('index.cart');
@@ -95,6 +99,8 @@ class IndexController extends Controller
                     "maxQuantity" => $product->quantity,
                     "sale_price" => $product->sale_price,
                     "image" => $product->image,
+                    "cost_price" => $product->cost_price,
+                    "category_id" => $product->category_id
                 ]
             ];
             session()->put('cart', $cart);
@@ -114,6 +120,8 @@ class IndexController extends Controller
             "maxQuantity" => $product->quantity,
             "sale_price" => $product->sale_price,
             "image" => $product->image,
+            "cost_price" => $product->cost_price,
+            "category_id" => $product->category_id
         ];
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Produto adicionado no carrinho com sucesso');
