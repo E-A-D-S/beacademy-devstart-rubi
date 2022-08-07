@@ -22,7 +22,7 @@
               <div>
                   <h4 class=" mb-3">Clique abaixo e confira todos os seus pedidos</h4>
                 </div>
-                <a href="{{ route('orders.details') }}" class="btn btn-success">Conferir Pedidos</a>
+                <a href="{{ route('orders.index') }}" class="btn btn-success">Conferir Pedidos</a>
                 @if($response['body']['transaction_type'] == 'ticket')
                 <div>
                   <h4 class="mb-3 mt-3">Clique abaixo para baixar o seu boleto</h4>
