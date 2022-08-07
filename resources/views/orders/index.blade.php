@@ -1,36 +1,32 @@
 @extends("template.layout")
 @section('title', $viewData["title"])
 @section('content')
+
+{{-- {{ dd($viewData) }} --}}
+
 <main class="container mt-5">
-    <div class="card mb-4">
+    <h3>Todos os seus pedidos</h3>
+    <table class="table table-bordered table-striped text-center mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Pedido</th>
+                <th scope="col">Produto Nome</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
         @foreach($viewData["orders"] as $order)
-        <div class="card-header">
-            Pedido #{{ $order->getId() }}
-        </div>
-        <div class="card-body">
-                <b>Data:</b> {{ formatDateTime($order->getCreatedAt()) }}<br/>
-                <table class="table table-bordered table-striped text-center mt-3">
-                    <thead>
-                    <tr>
-                        <th scope="col">Produto ID</th>
-                        <th scope="col">Produto Nome</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($order->getItems() as $item)
-                        <tr>
-                            <td>{{ $item->getId() }}</td>
-                            <td>{{ $item->getProduct()->getName()}}</td>
-                            <td>R${{ formatMoney($item->getPrice()) }}</td>
-                            <td>{{ $item->getQuantity() }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            @endforeach
-        </div>
-    </main>
-@endforeach
+        <tbody>
+            <tr>
+                <td>#{{ $order->id }}</td>
+                <td>{{ $order->name }}</td>
+                <td>R$ {{ $order->sale_price }}</td>
+                <td>{{ $order->quantity }}</td>
+                <td>{{ formatDateTime($order->getCreatedAt()) }}</td>
+            </tr>
+        </tbody>
+        @endforeach
+    </table>
+</main>
 @endsection
