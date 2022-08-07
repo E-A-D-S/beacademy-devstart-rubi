@@ -23,7 +23,6 @@ class OrderController extends Controller
         $viewData["title"] = "Meus Pedidos";
         $viewData["orders"] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();
         return view('orders.index')->with("viewData", $viewData);
-
     }
 
     public function create()
@@ -134,6 +133,7 @@ class OrderController extends Controller
                 $order->category = $pedido['category_id'];
                 $order->user_id = Auth::user()->id;
                 $order->save();
+                session()->forget('cart');
             }
 
             return view('orders.paid', compact('response'));
