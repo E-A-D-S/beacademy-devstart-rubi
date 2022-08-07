@@ -123,35 +123,24 @@ class OrderController extends Controller
         $transaction = $response['transaction'];
         $transaction['status'];
 
-        if ($transaction['status'] == 'paid') {
+        if ($transaction['status'] == 'paid') {            
+            foreach ($cart as $pedido) {
+                $order = new Order;
+                $order->name = $pedido['name'];
+                $order->quantity = $pedido['quantity'];
+                $order->sale_price = $pedido['sale_price'];
+                $order->image = 'null.png';
+                $order->cost_price = $pedido['cost_price'];
+                $order->category = $pedido['category_id'];
+                $order->user_id = Auth::user()->id;
+                $order->save();
+            }
+
             return view('orders.paid', compact('response'));
         } else {
             return view('orders.refused', compact('response'));
         }
     }
-
-    public function boleto(Request $request)
-    {
-        $data = [
-            'name' => Auth::user()->name,
-            'phone' => Auth::user()->phone,
-            'email' => Auth::user()->email,
-        ];
-
-        dd($request->cpf);
-        dd($data);
-
-        $dompdf = new Dompdf();
-        $dompdf->loadHtml(view('orders.boleto', compact('request','data')));
-        $dompdf->setPaper('A4', 'portrait');
-        // $customPaper = array(0,0,360,360);
-        // $dompdf->set_paper($customPaper);
-        $dompdf->render();
-        $dompdf->stream();
-        
-        return redirect()->route('home.index')->with('donwload', 'Boleto gerado com sucesso!');
-    }
-
     public function show()
     {
         return view('orders.details');
