@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // idempotente: se ja ha produtos, nao popula de novo (evita duplicar a cada deploy)
+        if (\App\Models\Product::count() > 0) {
+            return;
+        }
         \App\Models\User::factory(10)->create();
         \App\Models\Address::factory(10)->create();
         \App\Models\Phone::factory(10)->create();

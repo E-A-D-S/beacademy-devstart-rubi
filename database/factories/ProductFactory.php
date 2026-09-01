@@ -22,8 +22,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(2),
             'category_id' => Category::All()->random()->id,
             'quantity' => $this->faker->numberBetween(1, 99),
-            'cost_price' => $this->faker->randomFloat(2, 100, 900),
-            'sale_price' => $this->faker->randomFloat(2, 1000, 2.000),
+            'cost_price' => $this->faker->randomFloat(2, 20, 150),
+            'sale_price' => $this->faker->randomFloat(2, 45, 400),
             'created_at' => now(),
             'updated_at' => now(),
         ];
