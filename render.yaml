@@ -11,8 +11,6 @@ services:
         value: "false"
       - key: DB_CONNECTION
         value: pgsql
-      - key: APP_KEY
-        sync: false        # cole: php artisan key:generate --show
       - key: DATABASE_URL
         sync: false        # cole a connection string do Neon (postgres://...)
       - key: APP_URL
