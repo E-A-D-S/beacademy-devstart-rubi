@@ -18,7 +18,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 RUN mkdir -p storage/framework/views storage/framework/cache/data storage/framework/sessions storage/logs bootstrap/cache
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress \
+RUN composer install --optimize-autoloader --no-interaction --no-progress \
     && chown -R www-data:www-data storage bootstrap/cache
 
 RUN chmod +x docker-entrypoint.sh

@@ -21,7 +21,12 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         \App\Models\Address::factory(10)->create();
         \App\Models\Phone::factory(10)->create();
-        \App\Models\Category::factory(3)->create();
+        // categorias fixas de vinho (em vez de nomes aleatorios)
+        foreach (['Tinto','Branco','Rosé','Espumante','Sobremesa'] as $nome) {
+            $cat = new \App\Models\Category();
+            $cat->name = $nome;
+            $cat->save();
+        }
         \App\Models\Product::factory(50)->create();
         // \App\Models\Order::factory(10)->create();
 

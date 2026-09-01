@@ -17,9 +17,14 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        $castas = ['Cabernet Sauvignon','Merlot','Malbec','Tannat','Pinot Noir','Syrah','Carménère','Tempranillo','Chardonnay','Sauvignon Blanc','Rosé','Prosecco'];
+        $linhas = ['Reserva','Gran Reserva','Safra 2018','Safra 2020','Selección','Premium','Clássico','Terroir'];
+        $corpo  = ['encorpado','leve e frutado','seco','aveludado','intenso'];
+        $harmoniza = ['carnes vermelhas','massas','queijos','peixes','uma boa conversa'];
+
         return [
-            'name' => $this->faker->name(),
-            'description' => $this->faker->paragraph(2),
+            'name' => $this->faker->randomElement($castas).' '.$this->faker->randomElement($linhas),
+            'description' => 'Vinho '.$this->faker->randomElement($corpo).', ideal para '.$this->faker->randomElement($harmoniza).'. Produto de demonstração (dados fictícios).',
             'category_id' => Category::All()->random()->id,
             'quantity' => $this->faker->numberBetween(1, 99),
             'cost_price' => $this->faker->randomFloat(2, 20, 150),
