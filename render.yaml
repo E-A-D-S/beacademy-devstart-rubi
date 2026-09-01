@@ -1,0 +1,27 @@
+# Blueprint do Render (deploy gratuito via Docker). Banco no Neon (Postgres), via DATABASE_URL.
+services:
+  - type: web
+    name: wine-ecommerce
+    runtime: docker
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: APP_KEY
+        sync: false        # cole: php artisan key:generate --show
+      - key: DATABASE_URL
+        sync: false        # cole a connection string do Neon (postgres://...)
+      - key: APP_URL
+        sync: false        # ex.: https://wine-ecommerce.onrender.com
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_DRIVER
+        value: file
+      - key: MAIL_MAILER
+        value: log
+      - key: LOG_CHANNEL
+        value: stderr
